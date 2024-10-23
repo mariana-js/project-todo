@@ -23,8 +23,7 @@ Aplicação web simples de lista de tarefas.
 - status : boolean
 	
 ## Diagrama de Classes
-
-[TODO.png]
+[](https://github.com/mariana-js/project-todo/blob/main/TODO.png)
 
 ## Simulação da Tela
 
