@@ -1,6 +1,6 @@
 # Projeto TODO
 
-Link da aplicação: ![todo]()
+Link da aplicação: [todo]()
 Aplicação web simples de lista de tarefas.
 
 ### Funcionalidades
