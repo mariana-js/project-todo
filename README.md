@@ -1,31 +1,25 @@
 # Projeto TODO
 
-Link da aplicação: []
+Link da aplicação: ![todo]()
 Aplicação web simples de lista de tarefas.
 
-## Funcionalidades
+### Funcionalidades
 
 - CRUD de tarefas com JSON
 - Exibir tarefas concluídas
 - Ser responsivo
 - Aplicação Web
 
-## Tecnologias ultilizadas
+### Tecnologias ultilizadas
 
 - Angular 17
 - JSON
 	
-## Atributos
+### Diagrama de Classes
 
-- id : integer
-- titulo : string
-- descricao : string
-- status : boolean
-	
-## Diagrama de Classes
 ![](https://github.com/mariana-js/project-todo/blob/main/TODO.png)
 
-## Simulação da Tela
+### Simulação da Tela
 
 
 
