@@ -1,0 +1,4 @@
+Iniciando api json:
+
+	npm i -D json-server
+	npx json-server db.json
