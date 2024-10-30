@@ -1,33 +1,100 @@
 <div class="container-global">
 
+  <div class="modo">
+    <img src="assets/mode-light.png" alt="mode">
+  </div>
+
   <div class="title">
-    <h1>Lista de Tarefas</h1>
+
+    <div class="image-title">
+      <img src="assets/Icone.png" alt="TaskList">
+    </div>
+
+    <div class="title-principal">
+      <h1>Lista de Tarefas</h1>
+      <h3>30/10/2024</h3>
+    </div>
   </div>
 
   <div class="container-add-todo">
-    <label></label>
-    <input type="text">
-    <button>Adicionar</button>
+
+    <input type="text" id="title-task" placeholder="Insira o titulo da tarefa">
+    <input type="text" id="describe-task" placeholder="Insira a descrição da tarefa">
+    <input type="date" id="date-task">
+    <input type="time" id="time-task">
+    <!-- <time datetime="datatime">00:00</time> -->
+    <button type="submit"><img src="assets/add.png" alt="add-task"></button>
   </div>
   <div class="container-todo">
-    <table>
-      <head>
-        <tr><th>Tarefa</th><th>Horário</th><th>Status</th></tr>
-      </head>
-      <tbody>
-        <tr>
-          <td class="tarefa">
-            <span>Almoço</span>
-            <span>Almoço com a cliente</span>
-          </td>
-          <td>10:00</td>
-          <td>
-           <!-- <mat-checkbox>text</mat-checkbox> -->
-          </td>
-        </tr>
-      </tbody>
+    <div class="todo">
+      <div class="title-todo">
+        <h2>My Tasks</h2>
+      </div>
+      <table>
 
-    </table>
+        <head>
+          <tr>
+            <th></th> <!-- Status -->
+            <th>Tarefa</th>
+            <th></th><!-- Date and time -->
+            <th></th> <!-- Update -->
+            <th></th> <!-- Delete -->
+          </tr>
+        </head>
+
+        <tbody>
+          <tr>
+            <td class="task">
+            <td>
+              <input type="checkbox" name="status" id="status">
+            </td>
+            <td>
+              <span>Almoço</span>
+              <span>Almoço com a cliente</span>
+            </td>
+            <td>- 12/10/2024 - 10:00</td>
+            <td><img src="assets/update.png" alt="update-task"></td>
+            <td><img src="assets/delete.png" alt="delete-task"></td>
+          </tr>
+        </tbody>
+
+      </table>
+
+    </div>
+    <div class="task-finished">
+      <div class="title-todo">
+        <h2>Tasks Finished</h2>
+      </div>
+      <table>
+
+        <head>
+          <tr>
+            <th></th> <!-- Status -->
+            <th>Tarefa</th>
+            <th></th><!-- Date and time -->
+            <th></th> <!-- Update -->
+            <th></th> <!-- Delete -->
+          </tr>
+        </head>
+        <tbody>
+          <tr>
+            <td class="task">
+            <td>
+              <input type="checkbox" name="status" id="status">
+            </td>
+            <td>
+              <span>Estudar C#</span>
+              <span>Curso Udemy</span>
+            </td>
+            <td>- 12/10/2024 - 10:00</td>
+            <td><img src="assets/update.png" alt="update-task"></td>
+            <td><img src="assets/delete.png" alt="delete-task"></td>
+          </tr>
+        </tbody>
+
+      </table>
+    </div>
+
   </div>
 
 </div>
