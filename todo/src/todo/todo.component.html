@@ -12,18 +12,17 @@
 
     <div class="title-principal">
       <h1>Lista de Tarefas</h1>
-      <h3>30/10/2024</h3>
+      <h3 *ngIf="nowdate">{{ nowdate | date: 'dd/MM/yyyy' }}</h3>
     </div>
   </div>
 
   <div class="container-add-todo">
 
-    <input type="text" id="title-task" placeholder="Insira o titulo da tarefa">
-    <input type="text" id="describe-task" placeholder="Insira a descrição da tarefa">
-    <input type="date" id="date-task">
-    <input type="time" id="time-task">
-    <!-- <time datetime="datatime">00:00</time> -->
-    <button type="submit"><img src="assets/add.png" alt="add-task"></button>
+    <input type="text" [(ngModel)]="newTask.title" placeholder="Insira o titulo da tarefa">
+    <input type="text" [(ngModel)]="newTask.description" placeholder="Insira a descrição da tarefa">
+    <input type="date" [(ngModel)]="newTask.date">
+    <input type="time" [(ngModel)]="newTask.time">
+    <button type="submit"><img src="assets/add.png" alt="add-task" (click)="addTask()"></button>
   </div>
   <div class="container-todo">
     <div class="todo">
@@ -32,7 +31,7 @@
       </div>
       <table>
 
-        <head>
+        <thead>
           <tr>
             <th></th> <!-- Status -->
             <th>Tarefa</th>
@@ -40,21 +39,23 @@
             <th></th> <!-- Update -->
             <th></th> <!-- Delete -->
           </tr>
-        </head>
+        </thead>
 
         <tbody>
-          <tr>
+          <tr *ngFor="let task of filteredTasks">
             <td class="task">
             <td>
-              <input type="checkbox" name="status" id="status">
+              <input type="checkbox" name="status" [checked]="task.status" (change)="toggleStatus(task)">
             </td>
             <td>
-              <span>Almoço</span>
-              <span>Almoço com a cliente</span>
+              <span>{{task.title}}</span>
+              <span>{{task.description}}</span>
             </td>
-            <td>- 12/10/2024 - 10:00</td>
+            <td>- {{task.date | date:'short'}} - {{task.time}}</td>
             <td><img src="assets/update.png" alt="update-task"></td>
-            <td><img src="assets/delete.png" alt="delete-task"></td>
+            <td ><img src="assets/delete.png" alt="delete-task"></td>
+            <!-- (click)="editTask(task)"
+            (click)="deleteTask(task.id)" -->
           </tr>
         </tbody>
 
@@ -67,7 +68,7 @@
       </div>
       <table>
 
-        <head>
+        <thead>
           <tr>
             <th></th> <!-- Status -->
             <th>Tarefa</th>
@@ -75,21 +76,24 @@
             <th></th> <!-- Update -->
             <th></th> <!-- Delete -->
           </tr>
-        </head>
+        </thead>
         <tbody>
-          <tr>
+          <tr *ngFor="let task of completedTasks">
             <td class="task">
             <td>
-              <input type="checkbox" name="status" id="status">
+              <input  type="checkbox"  name="status" [checked]="task.status" (change)="toggleStatus(task)">
             </td>
             <td>
-              <span>Estudar C#</span>
-              <span>Curso Udemy</span>
+              <span>{{task.title}}</span>
+              <span>{{task.description}}</span>
             </td>
-            <td>- 12/10/2024 - 10:00</td>
+            <td>- {{task.date | date:'short'}} - {{task.time}}</td>
             <td><img src="assets/update.png" alt="update-task"></td>
-            <td><img src="assets/delete.png" alt="delete-task"></td>
+            <td><img src="assets/delete.png" alt="delete-task" ></td>
+            <!-- (click)="editTask(task)"
+              (click)="deleteTask(task.id)" -->
           </tr>
+
         </tbody>
 
       </table>

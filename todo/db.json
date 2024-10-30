@@ -2,35 +2,35 @@
   "taks": [
     {
       "id": "1",
-      "title": "Estudar C#",
-      "description": "Curso Udemy",
-      "date":"01/11/2024",
-      "time":"08:00",
-      "status":"false"
+      "title": "sdf",
+      "description": "dfds",
+      "date": "2024-10-09",
+      "time": "06:57",
+      "status": true
     },
     {
       "id": "2",
       "title": "Estudar Linux",
       "description": "Curso Udemy",
-      "date":"02/11/2024",
-      "time":"08:10",
-      "status":"false"
+      "date": "02/11/2024",
+      "time": "08:10",
+      "status": false
     },
     {
       "id": "3",
       "title": "Estudar Java",
       "description": "Curso Udemy",
-      "date":"03/11/2024",
-      "time":"08:20",
-      "status":"true"
+      "date": "03/11/2024",
+      "time": "08:20",
+      "status": false
     },
     {
       "id": "4",
       "title": "Estudar Pfsense",
       "description": "Curso Udemy",
-      "date":"04/11/2024",
-      "time":"08:30",
-      "status":"true"
+      "date": "04/11/2024",
+      "time": "08:30",
+      "status": true
     }
   ]
 }
