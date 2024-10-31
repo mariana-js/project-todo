@@ -1,4 +1,4 @@
-import { CommonModule, DatePipe } from '@angular/common';
+import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
@@ -18,11 +18,12 @@ import { Task, TodoService } from '../service/todo.service';
 export class TodoComponent {
   tasks: Task[] = [];
   nowdate: Date | undefined;
-  editTask: Task | null = null;
+  editedTask: Task | null = null;
   filteredTasks: Task[] = [];
   completedTasks: Task[] = [];
+  taskSelected: boolean = false;
   newTask: Task = {
-    id: 0,
+    id: '',
     title: '',
     description: '',
     date: new Date(),
@@ -33,9 +34,7 @@ export class TodoComponent {
     status: false
   }
 
-  constructor(private todoService: TodoService) {
-
-  }
+  constructor(private todoService: TodoService) {}
 
   ngOnInit() {
     this.nowdate = new Date();
@@ -56,15 +55,31 @@ export class TodoComponent {
     this.loadTasks();
   }
 
-  editItem(task: Task) {
-    this.editTask = { ...task };
+  editTask(task: Task) {
+    this.editedTask = { ...task };
+    this.newTask = { ...task };
+  }
+  save(){
+    console.log("Salvando", this.taskSelected)
+    if (this.taskSelected === false){
+      console.log("Adicionando")
+      this.addTask();
+    } else if (this.taskSelected === true){
+      console.log("Alterando")
+      
+      this.updateTask();
+    }
+    this.loadTasks();
   }
 
   addTask() {
+
+    if (this.newTask.title && this.newTask.title.trim() !== '') {
+
     this.todoService.addTask(this.newTask).subscribe(task => {
       this.tasks.push(task);
       this.newTask = {
-        id: 0,
+        id: '',
         title: '',
         description: '',
         date: new Date(),
@@ -74,22 +89,30 @@ export class TodoComponent {
         },
         status: false
       }
-    })
+    });
+
+  } else {
+    alert("Insira o título da tarefa.")
+  }
   }
   updateTask() {
-    if (this.editTask) {
-      this.todoService.updateTask(this.editTask).subscribe(task => {
+    this.taskSelected = true;
+    if (this.editedTask) {
+      this.todoService.updateTask(this.editedTask).subscribe(task => {
         const index = this.tasks.findIndex(i => i.id === task.id);
         if (index !== -1) this.tasks[index] = task;
-        this.editTask = null;
+        this.editedTask = null;
       });
     }
   }
-  deleteItem(id: number) {
-    this.todoService.deleteTask(id).subscribe(() => {
-      this.tasks = this.tasks.filter(task => task.id !== id); // Remove o item da lista
-    });
+  deleteTask(id: string) {
+    if(confirm("Tem certeza que deseja excluir esta tarefa?")){
+      this.todoService.deleteTask(id).subscribe(() => {
+        this.tasks = this.tasks.filter(task => task.id !== id);
+        this.loadTasks();
+      });
+    }
+
   }
 
 }
-

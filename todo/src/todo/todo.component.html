@@ -17,12 +17,11 @@
   </div>
 
   <div class="container-add-todo">
-
     <input type="text" [(ngModel)]="newTask.title" placeholder="Insira o titulo da tarefa">
     <input type="text" [(ngModel)]="newTask.description" placeholder="Insira a descrição da tarefa">
     <input type="date" [(ngModel)]="newTask.date">
     <input type="time" [(ngModel)]="newTask.time">
-    <button type="submit"><img src="assets/add.png" alt="add-task" (click)="addTask()"></button>
+    <button type="submit"><img src="assets/add.png" alt="add-task" (click)="save()"></button>
   </div>
   <div class="container-todo">
     <div class="todo">
@@ -52,10 +51,9 @@
               <span>{{task.description}}</span>
             </td>
             <td>- {{task.date | date:'short'}} - {{task.time}}</td>
-            <td><img src="assets/update.png" alt="update-task"></td>
-            <td ><img src="assets/delete.png" alt="delete-task"></td>
-            <!-- (click)="editTask(task)"
-            (click)="deleteTask(task.id)" -->
+            <td><img src="assets/update.png" alt="update-task" (click)="save(); this.taskSelected === true; this.editTask(task); "></td>
+            <td ><img src="assets/delete.png" alt="delete-task"  (click)="deleteTask(task.id)" ></td>
+           
           </tr>
         </tbody>
 
@@ -80,18 +78,17 @@
         <tbody>
           <tr *ngFor="let task of completedTasks">
             <td class="task">
-            <td>
-              <input  type="checkbox"  name="status" [checked]="task.status" (change)="toggleStatus(task)">
-            </td>
-            <td>
-              <span>{{task.title}}</span>
-              <span>{{task.description}}</span>
-            </td>
-            <td>- {{task.date | date:'short'}} - {{task.time}}</td>
-            <td><img src="assets/update.png" alt="update-task"></td>
-            <td><img src="assets/delete.png" alt="delete-task" ></td>
-            <!-- (click)="editTask(task)"
-              (click)="deleteTask(task.id)" -->
+              <td>
+                <input type="checkbox" name="status" [checked]="task.status" (change)="toggleStatus(task)">
+              </td>
+              <td>
+                <span>{{task.title}}</span>
+                <span>{{task.description}}</span>
+              </td>
+              <td>- {{task.date | date:'short'}} - {{task.time}}</td>
+              <td><img src="assets/update.png" alt="update-task"></td>
+              <td ><img src="assets/delete.png" alt="delete-task"  (click)="deleteTask(task.id)" ></td>
+              <!--  -->
           </tr>
 
         </tbody>
