@@ -2,7 +2,7 @@ import { Time } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { map, Observable } from 'rxjs';
-
+import { v4 as uuidv4 } from 'uuid';
 export interface Task {
   id: string;
   title: string;
@@ -18,15 +18,9 @@ export interface Task {
 export class TodoService {
   private api = 'http://localhost:3000/taks';
   private tasks: Task[] = [];
-  private nextId = "";
-  private cod = 0;
 
-  constructor(private http: HttpClient) {
-
-    this.getTaskCount().subscribe(count => {
-      this.cod = count + 1; // O próximo ID será um a mais que o total atual
-    });
-   }
+  constructor(private http: HttpClient) {}
+  
   getTaskCount(): Observable<number> {
     return this.http.get<any[]>(this.api).pipe(
       map((tasks => tasks.length) // Retorna a quantidade de tarefas
@@ -36,7 +30,7 @@ export class TodoService {
     return this.http.get<Task[]>(this.api);
   }
   addTask(task: Task): Observable<Task> {
-    task.id = this.cod.toString();
+    task.id = uuidv4();
     this.tasks.push(task);
     return this.http.post<Task>(this.api, task);
   }
@@ -54,3 +48,4 @@ export class TodoService {
     return this.http.delete<void>(`${this.api}/${id}`)
   }
 }
+

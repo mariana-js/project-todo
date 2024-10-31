@@ -35,7 +35,7 @@ export class TodoComponent {
     status: false
   }
 
-  constructor(private todoService: TodoService) {}
+  constructor(private todoService: TodoService) { }
 
   ngOnInit() {
     this.nowdate = new Date();
@@ -43,7 +43,7 @@ export class TodoComponent {
   }
 
   loadTasks() {
-    this.todoService.getTasks().subscribe(task => {
+      this.todoService.getTasks().subscribe(task => {
       this.tasks = task;
       this.filteredTasks = this.tasks.filter(task => !task.status);
       this.completedTasks = this.tasks.filter(task => task.status);
@@ -51,38 +51,45 @@ export class TodoComponent {
     });
   }
   toggleStatus(task: Task) {
-    task.status = !task.status;
-    this.todoService.updateTask(task).subscribe();
-    this.loadTasks();
+    task.status = !task.status; // Altera o status localmente
+  
+    this.todoService.updateTask(task).subscribe(() => {
+      // Atualiza as listas localmente sem recarregar todas as tarefas
+      if (task.status) {
+        // Se a tarefa estiver concluída, mova para completedTasks
+        this.filteredTasks = this.filteredTasks.filter(t => t.id !== task.id);
+        this.completedTasks.push(task);
+      } else {
+        // Se a tarefa não estiver concluída, mova para filteredTasks
+        this.completedTasks = this.completedTasks.filter(t => t.id !== task.id);
+        this.filteredTasks.push(task);
+      }
+    });
   }
+  
 
   editTask(task: Task) {
     this.editedTask = { ...task };
     this.newTask = { ...task };
   }
-  save(){
-    console.log("Salvando", this.taskSelected)
-    if (this.taskSelected === true){
-      console.log("Alterando",this.editedTask)
 
+  save() {
+    if (this.taskSelected) {
       this.updateTask();
-      this.loadTasks()
     } else {
-      console.log("Adicionando")
       this.addTask();
-      this.loadTasks()
     }
-
-    this.loadTasks();
+    this.taskSelected = false;
+    this.clear();
   }
+
   selected(task: Task) {
     this.editTask(task);
-    const s =  this.taskSelected = true;
-    console.log("Selecionando ",s)
+    const s = this.taskSelected = true;
     return s;
   }
 
-  clear(){
+  clear() {
     this.newTask = {
       id: '',
       title: '',
@@ -98,30 +105,28 @@ export class TodoComponent {
   addTask() {
 
     if (this.newTask.title && this.newTask.title.trim() !== '') {
-    this.todoService.addTask(this.newTask).subscribe(task => {
-      this.tasks.push(task);
-      this.clear();
-    });
+      this.todoService.addTask(this.newTask).subscribe(task => {
+        this.tasks.push(task);
+        this.loadTasks();
+      });
 
-  } else {
-    alert("Insira o título da tarefa.")
-  }
+    } else {
+      alert("Insira o título da tarefa.")
+    }
   }
   updateTask() {
+    this.editedTask = this.newTask;
     if (this.newTask) {
-      this.editedTask = this.newTask;
       this.todoService.updateTask(this.editedTask).subscribe(task => {
         const index = this.tasks.findIndex(i => i.id === task.id);
         if (index !== -1) this.tasks[index] = task;
         this.editedTask = null;
-        this.taskSelected = false
-        this.clear();
-        console.log("Alterado")
+        this.loadTasks();
       });
     }
   }
   deleteTask(id: string) {
-    if(confirm("Tem certeza que deseja excluir esta tarefa?")){
+    if (confirm("Tem certeza que deseja excluir esta tarefa?")) {
       this.todoService.deleteTask(id).subscribe(() => {
         this.tasks = this.tasks.filter(task => task.id !== id);
         this.loadTasks();

@@ -21,7 +21,9 @@
     <input type="text" [(ngModel)]="newTask.description" placeholder="Insira a descrição da tarefa">
     <input type="date" [(ngModel)]="newTask.date">
     <input type="time" [(ngModel)]="newTask.time">
-    <button type="submit"><img src="assets/add.png" alt="add-task" (click)="save()"></button>
+    <button type="submit" (click)="save()">
+      <img src="assets/add.png" alt="add-task">
+    </button>
   </div>
   <div class="container-todo">
     <div class="todo">
@@ -43,16 +45,16 @@
         <tbody>
           <tr *ngFor="let task of filteredTasks">
             <td class="task">
-            <td>
-              <input type="checkbox" name="status" [checked]="task.status" (change)="toggleStatus(task);">
+            <td (click)="toggleStatus(task)">
+              <input type="checkbox" name="status" [checked]="task.status">
             </td>
             <td>
               <span>{{task.title}}</span>
               <span>{{task.description}}</span>
             </td>
-            <td>- {{task.date | date:'short'}} - {{task.time}}</td>
+            <td>- {{task.date | date: 'dd/MM/yyyy'}} - {{task.time}}</td>
             <td><img src="assets/update.png" alt="update-task" (click)="selected(task);"></td>
-            <td ><img src="assets/delete.png" alt="delete-task"  (click)="deleteTask(task.id)" ></td>
+            <td><img src="assets/delete.png" alt="delete-task" (click)="deleteTask(task.id)"></td>
 
           </tr>
         </tbody>
@@ -78,16 +80,16 @@
         <tbody>
           <tr *ngFor="let task of completedTasks">
             <td class="task">
-              <td>
-                <input type="checkbox" name="status" [checked]="task.status" (change)="toggleStatus(task);">
-              </td>
-              <td>
-                <span>{{task.title}}</span>
-                <span>{{task.description}}</span>
-              </td>
-              <td>- {{task.date | date:'short'}} - {{task.time}}</td>
-              <td><img src="assets/update.png" alt="update-task" (click)="selected(task);"></td>
-              <td ><img src="assets/delete.png" alt="delete-task"  (click)="deleteTask(task.id)" ></td>
+            <td (click)="toggleStatus(task)">
+              <input type="checkbox" name="status" [checked]="task.status">
+            </td>
+            <td>
+              <span>{{task.title}}</span>
+              <span>{{task.description}}</span>
+            </td>
+            <td>- {{task.date | date: 'dd/MM/yyyy'}} - {{task.time}}</td>
+            <td><img src="assets/update.png" alt="update-task" (click)="selected(task);"></td>
+            <td><img src="assets/delete.png" alt="delete-task" (click)="deleteTask(task.id)"></td>
           </tr>
 
         </tbody>
