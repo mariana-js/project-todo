@@ -17,22 +17,6 @@
       "description": " alterado 3",
       "date": "2024-10-08",
       "time": "13:09",
-      "status": true
-    },
-    {
-      "id": "3",
-      "title": "Php",
-      "description": "Curso",
-      "date": "2024-11-08",
-      "time": "05:31",
-      "status": true
-    },
-    {
-      "id": "3",
-      "title": "Java",
-      "description": "Curso",
-      "date": "2024-11-02",
-      "time": "08:30",
       "status": false
     },
     {
@@ -41,6 +25,25 @@
       "description": "Curso",
       "date": "2024-11-08",
       "time": "05:31",
+      "status": false
+    },
+    {
+      "id": "6",
+      "title": "Java",
+      "description": "Projeto agenda",
+      "date": "2024-11-06",
+      "time": {
+        "hours": 0,
+        "minutes": 0
+      },
+      "status": false
+    },
+    {
+      "id": "6",
+      "title": "Lavar roupas",
+      "description": "",
+      "date": "2024-10-29",
+      "time": "18:12",
       "status": false
     }
   ]
