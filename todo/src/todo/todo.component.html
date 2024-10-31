@@ -44,16 +44,16 @@
           <tr *ngFor="let task of filteredTasks">
             <td class="task">
             <td>
-              <input type="checkbox" name="status" [checked]="task.status" (change)="toggleStatus(task)">
+              <input type="checkbox" name="status" [checked]="task.status" (change)="toggleStatus(task);">
             </td>
             <td>
               <span>{{task.title}}</span>
               <span>{{task.description}}</span>
             </td>
             <td>- {{task.date | date:'short'}} - {{task.time}}</td>
-            <td><img src="assets/update.png" alt="update-task" (click)="save(); this.taskSelected === true; this.editTask(task); "></td>
+            <td><img src="assets/update.png" alt="update-task" (click)="selected(task);"></td>
             <td ><img src="assets/delete.png" alt="delete-task"  (click)="deleteTask(task.id)" ></td>
-           
+
           </tr>
         </tbody>
 
@@ -79,16 +79,15 @@
           <tr *ngFor="let task of completedTasks">
             <td class="task">
               <td>
-                <input type="checkbox" name="status" [checked]="task.status" (change)="toggleStatus(task)">
+                <input type="checkbox" name="status" [checked]="task.status" (change)="toggleStatus(task);">
               </td>
               <td>
                 <span>{{task.title}}</span>
                 <span>{{task.description}}</span>
               </td>
               <td>- {{task.date | date:'short'}} - {{task.time}}</td>
-              <td><img src="assets/update.png" alt="update-task"></td>
+              <td><img src="assets/update.png" alt="update-task" (click)="selected(task);"></td>
               <td ><img src="assets/delete.png" alt="delete-task"  (click)="deleteTask(task.id)" ></td>
-              <!--  -->
           </tr>
 
         </tbody>

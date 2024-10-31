@@ -10,7 +10,8 @@ import { Task, TodoService } from '../service/todo.service';
   imports: [
     CommonModule,
     FormsModule,
-    HttpClientModule],
+    HttpClientModule
+  ],
   providers: [TodoService],
   templateUrl: './todo.component.html',
   styleUrl: './todo.component.css'
@@ -44,8 +45,8 @@ export class TodoComponent {
   loadTasks() {
     this.todoService.getTasks().subscribe(task => {
       this.tasks = task;
-      this.filteredTasks = this.tasks.filter(task => task.status === false);
-      this.completedTasks = this.tasks.filter(task => task.status === true);
+      this.filteredTasks = this.tasks.filter(task => !task.status);
+      this.completedTasks = this.tasks.filter(task => task.status);
 
     });
   }
@@ -61,34 +62,45 @@ export class TodoComponent {
   }
   save(){
     console.log("Salvando", this.taskSelected)
-    if (this.taskSelected === false){
+    if (this.taskSelected === true){
+      console.log("Alterando",this.editedTask)
+
+      this.updateTask();
+      this.loadTasks()
+    } else {
       console.log("Adicionando")
       this.addTask();
-    } else if (this.taskSelected === true){
-      console.log("Alterando")
-      
-      this.updateTask();
+      this.loadTasks()
     }
+
     this.loadTasks();
   }
+  selected(task: Task) {
+    this.editTask(task);
+    const s =  this.taskSelected = true;
+    console.log("Selecionando ",s)
+    return s;
+  }
 
+  clear(){
+    this.newTask = {
+      id: '',
+      title: '',
+      description: '',
+      date: new Date(),
+      time: {
+        hours: 0,
+        minutes: 0
+      },
+      status: false
+    }
+  }
   addTask() {
 
     if (this.newTask.title && this.newTask.title.trim() !== '') {
-
     this.todoService.addTask(this.newTask).subscribe(task => {
       this.tasks.push(task);
-      this.newTask = {
-        id: '',
-        title: '',
-        description: '',
-        date: new Date(),
-        time: {
-          hours: 0,
-          minutes: 0
-        },
-        status: false
-      }
+      this.clear();
     });
 
   } else {
@@ -96,12 +108,15 @@ export class TodoComponent {
   }
   }
   updateTask() {
-    this.taskSelected = true;
-    if (this.editedTask) {
+    if (this.newTask) {
+      this.editedTask = this.newTask;
       this.todoService.updateTask(this.editedTask).subscribe(task => {
         const index = this.tasks.findIndex(i => i.id === task.id);
         if (index !== -1) this.tasks[index] = task;
         this.editedTask = null;
+        this.taskSelected = false
+        this.clear();
+        console.log("Alterado")
       });
     }
   }
