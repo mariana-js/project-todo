@@ -27,11 +27,8 @@ export class TodoComponent {
     id: '',
     title: '',
     description: '',
-    date: new Date(),
-    time: {
-      hours: 0,
-      minutes: 0
-    },
+    date: null, // Definindo como null para não preencher automaticamente com a data atual
+    time: null,
     status: false
   }
 
@@ -52,7 +49,6 @@ export class TodoComponent {
   }
   toggleStatus(task: Task) {
     task.status = !task.status; // Altera o status localmente
-  
     this.todoService.updateTask(task).subscribe(() => {
       // Atualiza as listas localmente sem recarregar todas as tarefas
       if (task.status) {
@@ -66,7 +62,7 @@ export class TodoComponent {
       }
     });
   }
-  
+
 
   editTask(task: Task) {
     this.editedTask = { ...task };
@@ -94,11 +90,8 @@ export class TodoComponent {
       id: '',
       title: '',
       description: '',
-      date: new Date(),
-      time: {
-        hours: 0,
-        minutes: 0
-      },
+      date: null, // Definindo como null para não preencher automaticamente com a data atual
+      time: null,
       status: false
     }
   }

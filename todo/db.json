@@ -5,33 +5,32 @@
       "title": "Java",
       "description": "",
       "date": "2024-10-31T18:05:58.490Z",
-      "time": {
-        "hours": 0,
-        "minutes": 0
-      },
-      "status": false
+      "time": "22:24",
+      "status": true
     },
     {
       "id": "641c8e21-41b4-4913-a7d6-7960081a8f78",
       "title": "C#",
-      "description": "",
-      "date": "2024-10-31T18:06:12.244Z",
-      "time": {
-        "hours": 0,
-        "minutes": 0
-      },
+      "description": "Projeto controle de equipamentos",
+      "date": "2024-11-05",
+      "time": "23:45",
+      "status": true
+    },
+    {
+      "id": "7098a27d-5555-47cd-8cc6-09ba45202342",
+      "title": "PHP",
+      "description": "Projeto e curso udemy",
+      "date": "2024-11-08",
+      "time": "02:00",
       "status": false
     },
     {
-      "id": "a3681344-0f69-42a1-825a-57831c3fdc64",
-      "title": "Alterado",
-      "description": "",
-      "date": "2024-10-31T18:06:54.385Z",
-      "time": {
-        "hours": 0,
-        "minutes": 0
-      },
-      "status": true
+      "id": "e5a2d2a8-9942-47af-8396-385cf3c25b90",
+      "title": "Psense",
+      "description": "Fazer curso da udemy de pfsense e realizar projetos do curso",
+      "date": null,
+      "time": null,
+      "status": false
     }
   ]
 }

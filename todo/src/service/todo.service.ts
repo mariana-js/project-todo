@@ -7,8 +7,8 @@ export interface Task {
   id: string;
   title: string;
   description: string;
-  date: Date;
-  time: Time;
+  date: Date | null;
+  time: Time | null;
   status: boolean;
 }
 
@@ -20,15 +20,17 @@ export class TodoService {
   private tasks: Task[] = [];
 
   constructor(private http: HttpClient) {}
-  
+
   getTaskCount(): Observable<number> {
     return this.http.get<any[]>(this.api).pipe(
       map((tasks => tasks.length) // Retorna a quantidade de tarefas
     ));
   }
+
   getTasks(): Observable<Task[]> {
     return this.http.get<Task[]>(this.api);
   }
+
   addTask(task: Task): Observable<Task> {
     task.id = uuidv4();
     this.tasks.push(task);
