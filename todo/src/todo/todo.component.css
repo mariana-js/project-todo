@@ -1,0 +1,40 @@
+.container-global{
+  padding: 2rem;
+  background-color: #f3f3f3;
+}
+.head{
+  display: contents;
+}
+.modo{
+  display: flex;
+  justify-content: flex-end;
+}
+.title{
+  display:inline-flex;
+  align-items: center;
+}
+h1, h3 {
+  margin: 0;
+}
+.image-title{
+
+}
+.image-title img{
+  height: 3.2rem;
+  width: 3.2rem;
+  margin-right: 1rem;
+}
+.title-principal{
+
+}
+
+.container-add-todo{
+
+}
+
+.container-todo{}
+
+.todo{}
+
+.task{}
+
