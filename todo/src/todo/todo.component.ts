@@ -38,7 +38,6 @@ export class TodoComponent {
     this.nowdate = new Date();
     this.loadTasks();
   }
-
   loadTasks() {
       this.todoService.getTasks().subscribe(task => {
       this.tasks = task;
