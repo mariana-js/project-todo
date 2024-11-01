@@ -1,7 +1,30 @@
-body{
+body {
   position: relative;
-  background-color: white;
-  justify-items: center;
-  margin:0;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+}
+html, body {
+  height: 100%; /* Garante que o HTML e o body preencham a altura */
+  margin: 0;
+}
 
+.container-global {
+  height: 100vh; /* 100% da altura da tela */
+  padding: 2rem;
+  background-color: #f3f3f3;
+  box-sizing: border-box; /* Inclui padding na altura total */
+}
+
+body .container-global{
+  background-color: #f3f3f3;
+}
+
+[data-theme="dark"] {
+  background-color: black;
+  color: white;
+}
+
+[data-theme="dark"] .container-global {
+  background-color: #313131;
 }

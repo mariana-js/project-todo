@@ -2,13 +2,13 @@
 
   <div class="head">
     <div class="modo">
-      <img src="assets/mode-light.png" alt="mode">
+      <img src="assets/mode-dark.png" alt="mode" (click)="modetoggle()" id="mode-icon">
     </div>
 
     <div class="title">
 
-      <div class="image-title">
-        <img src="assets/Icone.png" alt="TaskList">
+      <div class="image-title" >
+        <img src="assets/Icone.png" alt="TaskList" >
       </div>
 
       <div class="title-principal">
@@ -53,8 +53,8 @@
               <span>{{task.description}}</span>
             </td>
             <td>- {{task.date | date: 'dd/MM/yyyy'}} - {{task.time}}</td>
-            <td><img src="assets/update.png" alt="update-task" (click)="selected(task);"></td>
-            <td><img src="assets/delete.png" alt="delete-task" (click)="deleteTask(task.id)"></td>
+            <td><img id="update" src="assets/update.png" alt="update-task" (click)="selected(task);"></td>
+            <td><img id="delete" src="assets/delete.png" alt="delete-task" (click)="deleteTask(task.id)"></td>
 
           </tr>
         </tbody>
@@ -85,8 +85,8 @@
               <span>{{task.description}}</span>
             </td>
             <td>- {{task.date | date: 'dd/MM/yyyy'}} - {{task.time}}</td>
-            <td><img src="assets/update.png" alt="update-task" (click)="selected(task);"></td>
-            <td><img src="assets/delete.png" alt="delete-task" (click)="deleteTask(task.id)"></td>
+            <td><img id="update" src="assets/update.png" alt="update-task" (click)="selected(task);"></td>
+            <td><img id="delete" src="assets/delete.png" alt="delete-task" (click)="deleteTask(task.id)"></td>
           </tr>
 
         </tbody>

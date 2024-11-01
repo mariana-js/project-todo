@@ -4,7 +4,7 @@
       "id": "05ab3087-cc01-44d7-9056-25207b7de4d5",
       "title": "Java",
       "description": "",
-      "date": "2024-10-31T18:05:58.490Z",
+      "date": "2024-11-20",
       "time": "22:24",
       "status": false
     },
@@ -14,7 +14,7 @@
       "description": "Projeto controle de equipamentos",
       "date": "2024-11-05",
       "time": "23:45",
-      "status": false
+      "status": true
     },
     {
       "id": "7098a27d-5555-47cd-8cc6-09ba45202342",
@@ -22,12 +22,28 @@
       "description": "Projeto e curso udemy",
       "date": "2024-11-08",
       "time": "02:00",
-      "status": true
+      "status": false
     },
     {
       "id": "e5a2d2a8-9942-47af-8396-385cf3c25b90",
       "title": "Psense",
       "description": "Fazer curso da udemy de pfsense e realizar projetos do curso",
+      "date": "2024-11-13",
+      "time": "13:15",
+      "status": false
+    },
+    {
+      "id": "835084ac-b186-48c8-8dba-3e2b17862820",
+      "title": "Agenda",
+      "description": "Projeto",
+      "date": null,
+      "time": null,
+      "status": false
+    },
+    {
+      "id": "1002aeaa-3c0e-47c5-af95-9e5c8696c64f",
+      "title": "Fazer backup",
+      "description": "Semanal",
       "date": null,
       "time": null,
       "status": true
