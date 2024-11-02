@@ -3,7 +3,7 @@
     {
       "id": "05ab3087-cc01-44d7-9056-25207b7de4d5",
       "title": "Java",
-      "description": "",
+      "description": " Curso Udemy",
       "date": "2024-11-20",
       "time": "22:24",
       "status": false
@@ -22,7 +22,7 @@
       "description": "Projeto e curso udemy",
       "date": "2024-11-08",
       "time": "02:00",
-      "status": false
+      "status": true
     },
     {
       "id": "e5a2d2a8-9942-47af-8396-385cf3c25b90",
@@ -30,7 +30,7 @@
       "description": "Fazer curso da udemy de pfsense e realizar projetos do curso",
       "date": "2024-11-13",
       "time": "13:15",
-      "status": false
+      "status": true
     },
     {
       "id": "835084ac-b186-48c8-8dba-3e2b17862820",
@@ -38,7 +38,7 @@
       "description": "Projeto",
       "date": null,
       "time": null,
-      "status": false
+      "status": true
     },
     {
       "id": "1002aeaa-3c0e-47c5-af95-9e5c8696c64f",
@@ -47,6 +47,14 @@
       "date": null,
       "time": null,
       "status": true
+    },
+    {
+      "id": "efd44110-a23e-485d-ba56-e7618e2263f3",
+      "title": "teste",
+      "description": "",
+      "date": null,
+      "time": null,
+      "status": false
     }
   ]
 }

@@ -29,7 +29,7 @@ export class TodoComponent {
     id: '',
     title: '',
     description: '',
-    date: null, // Definindo como null para não preencher automaticamente com a data atual
+    date: null,
     time: null,
     status: false
   }
@@ -54,18 +54,20 @@ export class TodoComponent {
     document.documentElement.setAttribute('data-theme', this.darkmode ? "dark" : "light");
 
     const modeIcon = document.getElementById('mode-icon') as HTMLImageElement;
-    const modeDelete = document.getElementById('delete') as HTMLImageElement;
-    const modeUp = document.getElementById('update') as HTMLImageElement;
+    // const modeDelete = document.getElementById('delete') as HTMLImageElement;
+    // const modeUp = document.getElementById('update') as HTMLImageElement;
     if (modeIcon) {
       modeIcon.src = this.darkmode ? "assets/mode-light.png" : "assets/mode-dark.png";
-      modeDelete.src = this.darkmode ? "assets/delete.png" : "assets/delete-dark.png";
-      modeUp.src = this.darkmode ? "assets/update.png" : "assets/update.png";
-    }
-    if (modeDelete) {
-      modeIcon.src = this.darkmode ? "assets/delete.png" : "assets/delete-dark.png";
-    }
-    if (modeUp) {
-      modeIcon.src = this.darkmode ? "assets/update.png" : "assets/update.png";
+
+      const updateIcons = document.querySelectorAll('.update') as NodeListOf<HTMLImageElement>;
+      updateIcons.forEach(icon => {
+          icon.src = this.darkmode ? "assets/update.png" : "assets/update-dark.png";
+      });
+  
+      const deleteIcons = document.querySelectorAll('.delete') as NodeListOf<HTMLImageElement>;
+      deleteIcons.forEach(icon => {
+          icon.src = this.darkmode ? "assets/delete.png" : "assets/delete-dark.png";
+      });
     }
   }
 

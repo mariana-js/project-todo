@@ -22,8 +22,11 @@
   <div class="container-add-todo">
     <input type="text" [(ngModel)]="newTask.title" placeholder="Insira o titulo da tarefa">
     <input type="text" [(ngModel)]="newTask.description" placeholder="Insira a descrição da tarefa">
-    <input type="date" [(ngModel)]="newTask.date">
-    <input type="time" [(ngModel)]="newTask.time">
+    <div class="container-date-time-todo">
+
+      <input type="date" [(ngModel)]="newTask.date">
+      <input type="time" [(ngModel)]="newTask.time">
+    </div>
     <button type="submit" (click)="save()">
       <img src="assets/add.png" alt="add-task">
     </button>

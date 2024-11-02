@@ -1,6 +1,6 @@
 .container-global{
   padding: 2rem;
-  width: 40rem;
+  width: 42m hdnrem;
 }
 
 .head{
@@ -17,9 +17,7 @@
 h1, h3 {
   margin: 0;
 }
-.image-title{
 
-}
 .image-title img{
   height: 3.2rem;
   width: 3.2rem;
@@ -30,10 +28,26 @@ h1, h3 {
 }
 
 .container-add-todo{
-
+  display: grid;
+  margin: 1rem 0;
 }
 
-.container-todo{}
+.container-add-todo input{
+  border: 1px solid rgb(173, 173, 173);
+  border-radius: 0.5px;
+
+  height: 2rem;
+  margin: 0.01rem 0;
+}
+
+.container-date-time-todo{
+  display: inline;
+  height:1.5rem;
+}
+
+.container-todo{
+
+}
 
 .todo{}
 
