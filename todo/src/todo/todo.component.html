@@ -7,8 +7,8 @@
 
     <div class="title">
 
-      <div class="image-title" >
-        <img src="assets/Icone.png" alt="TaskList" >
+      <div class="image-title">
+        <img src="assets/Icone.png" alt="TaskList">
       </div>
 
       <div class="title-principal">
@@ -20,83 +20,88 @@
   </div>
 
   <div class="container-add-todo">
-    <input type="text" [(ngModel)]="newTask.title" placeholder="Insira o titulo da tarefa">
-    <input type="text" [(ngModel)]="newTask.description" placeholder="Insira a descrição da tarefa">
+    <div class="title-task-first-line">
+
+      <input class="title-task" type="text" [(ngModel)]="newTask.title" placeholder="Insira o titulo da tarefa">
+      <button type="submit" (click)="save()">
+        <img src="assets/add.png" alt="add-task">
+      </button>
+    </div>
+
     <div class="container-date-time-todo">
-
-      <input type="date" [(ngModel)]="newTask.date">
-      <input type="time" [(ngModel)]="newTask.time">
+      <div class="description">
+        <input class="description-input" type="text" [(ngModel)]="newTask.description"
+          placeholder="Insira a descrição da tarefa">
+        <input type="date" [(ngModel)]="newTask.date" class="icon-only date-icon">
+        <input type="time" [(ngModel)]="newTask.time" class="icon-only time-icon">
+      </div>
     </div>
-    <button type="submit" (click)="save()">
-      <img src="assets/add.png" alt="add-task">
-    </button>
+    <div class="container-todo">
+      <div class="todo">
+        <table>
+
+          <thead>
+            <tr>
+              <th colspan="4">Tarefas ({{filteredTasks.length}})</th>
+              <th></th> <!-- Status -->
+              <th></th><!-- Date and time -->
+              <th></th> <!-- Update -->
+              <th></th> <!-- Delete -->
+            </tr>
+          </thead>
+
+          <tbody>
+            <tr *ngFor="let task of filteredTasks" class="task">
+
+              <td (click)="toggleStatus(task)">
+                <input type="checkbox" name="status" [checked]="task.status">
+              </td>
+              <td class="task-title-description">
+                <span>{{task.title}}</span>
+                <span>{{task.description}}</span>
+              </td>
+              <td class="table-date-time"> {{task.date | date: 'dd/MM/yyyy'}} {{task.time}}</td>
+              <td><img id="update" src="assets/update.png" alt="update-task" (click)="selected(task);"></td>
+              <td><img id="delete" src="assets/delete.png" alt="delete-task" (click)="deleteTask(task.id)"></td>
+
+            </tr>
+          </tbody>
+
+        </table>
+
+      </div>
+      <div class="task">
+        <table>
+
+          <thead>
+            <tr>
+              <th colspan="4">Tarefas completas ({{completedTasks.length}})</th>
+              <th></th> <!-- Status -->
+              <th></th><!-- Date and time -->
+              <th></th> <!-- Update -->
+              <th></th> <!-- Delete -->
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let task of completedTasks" class="task">
+
+              <td (click)="toggleStatus(task)">
+                <input type="checkbox" name="status" [checked]="task.status">
+              </td>
+              <td class="task-title-description">
+                <span class="title-task-todo">{{task.title}}</span>
+                <span class="description-task-todo">{{task.description}}</span>
+              </td>
+              <td class="table-date-time"> {{task.date | date: 'dd/MM/yyyy'}} {{task.time}}</td>
+              <td><img id="update" src="assets/update.png" alt="update-task" (click)="selected(task);"></td>
+              <td><img id="delete" src="assets/delete.png" alt="delete-task" (click)="deleteTask(task.id)"></td>
+            </tr>
+
+          </tbody>
+
+        </table>
+      </div>
+
+    </div>
+
   </div>
-  <div class="container-todo">
-    <div class="todo">
-      <table>
-
-        <thead>
-          <tr>
-            <th></th> <!-- Status -->
-            <th>Tarefas ({{filteredTasks.length}})</th>
-            <th></th><!-- Date and time -->
-            <th></th> <!-- Update -->
-            <th></th> <!-- Delete -->
-          </tr>
-        </thead>
-
-        <tbody>
-          <tr *ngFor="let task of filteredTasks">
-            <td class="task">
-            <td (click)="toggleStatus(task)">
-              <input type="checkbox" name="status" [checked]="task.status">
-            </td>
-            <td>
-              <span>{{task.title}}</span>
-              <span>{{task.description}}</span>
-            </td>
-            <td>- {{task.date | date: 'dd/MM/yyyy'}} - {{task.time}}</td>
-            <td><img id="update" src="assets/update.png" alt="update-task" (click)="selected(task);"></td>
-            <td><img id="delete" src="assets/delete.png" alt="delete-task" (click)="deleteTask(task.id)"></td>
-
-          </tr>
-        </tbody>
-
-      </table>
-
-    </div>
-    <div class="task">
-      <table>
-
-        <thead>
-          <tr>
-            <th></th> <!-- Status -->
-            <th>Tarefas completas ({{completedTasks.length}})</th>
-            <th></th><!-- Date and time -->
-            <th></th> <!-- Update -->
-            <th></th> <!-- Delete -->
-          </tr>
-        </thead>
-        <tbody>
-          <tr *ngFor="let task of completedTasks">
-            <td class="task">
-            <td (click)="toggleStatus(task)">
-              <input type="checkbox" name="status" [checked]="task.status">
-            </td>
-            <td>
-              <span>{{task.title}}</span>
-              <span>{{task.description}}</span>
-            </td>
-            <td>- {{task.date | date: 'dd/MM/yyyy'}} - {{task.time}}</td>
-            <td><img id="update" src="assets/update.png" alt="update-task" (click)="selected(task);"></td>
-            <td><img id="delete" src="assets/delete.png" alt="delete-task" (click)="deleteTask(task.id)"></td>
-          </tr>
-
-        </tbody>
-
-      </table>
-    </div>
-
-  </div>
-
-</div>

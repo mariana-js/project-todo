@@ -6,7 +6,7 @@
       "description": " Curso Udemy",
       "date": "2024-11-20",
       "time": "22:24",
-      "status": false
+      "status": true
     },
     {
       "id": "641c8e21-41b4-4913-a7d6-7960081a8f78",
@@ -27,7 +27,7 @@
     {
       "id": "e5a2d2a8-9942-47af-8396-385cf3c25b90",
       "title": "Psense",
-      "description": "Fazer curso da udemy de pfsense e realizar projetos do curso",
+      "description": "Fazer curso da udemy de pfsense e realizar projetos do curso Fazer curso da udemy de pfsense e realizar projetos do curso Fazer curso da udemy de pfsense e realizar projetos do curso",
       "date": "2024-11-13",
       "time": "13:15",
       "status": true
@@ -41,19 +41,35 @@
       "status": true
     },
     {
-      "id": "1002aeaa-3c0e-47c5-af95-9e5c8696c64f",
-      "title": "Fazer backup",
-      "description": "Semanal",
-      "date": null,
-      "time": null,
-      "status": true
-    },
-    {
-      "id": "efd44110-a23e-485d-ba56-e7618e2263f3",
-      "title": "teste",
+      "id": "3c4660d0-8f0d-4139-b4f8-0bf674e297f3",
+      "title": "Backup Semanal",
       "description": "",
       "date": null,
       "time": null,
+      "status": false
+    },
+    {
+      "id": "46c91928-f6cb-4514-b2b7-8dad80f7279d",
+      "title": "Limpeza da sala",
+      "description": "",
+      "date": null,
+      "time": null,
+      "status": false
+    },
+    {
+      "id": "6c425a1d-1c63-4276-8925-39728a7e0450",
+      "title": "Adicionar HD",
+      "description": "Verificar a CPU antes da troca ",
+      "date": null,
+      "time": null,
+      "status": false
+    },
+    {
+      "id": "3c58e585-eddc-41c3-a9f7-c031b671fd5f",
+      "title": "Projeto Controle de Equipamentos",
+      "description": "Projeto de analise da situação dos computadores da empresa",
+      "date": "2024-11-13",
+      "time": "15:09",
       "status": false
     }
   ]

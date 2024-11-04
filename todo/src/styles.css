@@ -3,22 +3,23 @@ body {
   margin: 0;
   display: flex;
   justify-content: center;
+  /* background-image: url(assets/Fundo/lua-natureza.avif); */
+  
 }
 html, body {
-  height: 100%; /* Garante que o HTML e o body preencham a altura */
+  height: 100%; 
   margin: 0;
   background-color: #f3f3f3;
 }
 
 .container-global {
-  height: 100vh; /* 100% da altura da tela */
-  padding: 2rem;
-  background-color: #e1e1e1;
-  box-sizing: border-box; /* Inclui padding na altura total */
+  height: 100vh; 
+  padding: 2rem 4rem;
+  box-sizing: border-box; 
 }
 
 body .container-global{
-  background-color: #dfdcdc;
+  background-color: rgb(232, 233, 238);
 }
 
 [data-theme="dark"] body{

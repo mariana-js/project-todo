@@ -1,55 +1,163 @@
-.container-global{
-  padding: 2rem;
-  width: 42m hdnrem;
+h1,
+h3 {
+  margin: 0;
+  /* color: white; */
 }
 
-.head{
+.head {
   display: contents;
+
 }
-.modo{
+
+.modo {
   display: flex;
   justify-content: flex-end;
 }
-.title{
-  display:inline-flex;
+
+.title {
+  display: inline-flex;
   align-items: center;
 }
-h1, h3 {
-  margin: 0;
-}
 
-.image-title img{
+.image-title img {
   height: 3.2rem;
   width: 3.2rem;
   margin-right: 1rem;
 }
-.title-principal{
 
+.title-principal {}
+
+button {
+  width: 2.1rem;
+  padding: 0.1rem;
+  border: none;
 }
 
-.container-add-todo{
+/* ADD or ALT TASK  */
+.container-add-todo {
   display: grid;
-  margin: 1rem 0;
+  margin: 2rem 0;
 }
 
-.container-add-todo input{
+.title-task-first-line {
+  display: inline-flex;
+  justify-content: space-between;
+}
+
+.container-add-todo .description-input,
+.container-add-todo .title-task {
   border: 1px solid rgb(173, 173, 173);
   border-radius: 0.5px;
-
   height: 2rem;
-  margin: 0.01rem 0;
+  opacity: 0.9;
 }
 
-.container-date-time-todo{
-  display: inline;
-  height:1.5rem;
+.title-task {
+  width: 100%;
 }
 
-.container-todo{
+.container-date-time-todo {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.description {
+  position: relative;
+}
+
+.description-input {
+  margin-top: 0;
+  width: 81%;
+  padding-right: 70px;
+}
+
+.icon-only {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+
+  width: 18px;
+  border: none;
+  background: transparent;
+  -webkit-appearance: none;
+}
+
+.icon-only .date-icon input {
+  border: none;
+}
+
+.date-icon {
+  right: 50px;
+}
+
+.time-icon {
+  right: 20px;
 
 }
 
-.todo{}
+.icon-only::-webkit-calendar-picker-indicator {
+  opacity: 1;
+}
 
-.task{}
+.icon-only::-webkit-clear-button,
+.icon-only::-webkit-inner-spin-button {
+  display: none;
+}
 
+/* body */
+.container-todo {
+  margin: 1rem 0;
+  width: 42vh;
+}
+
+.todo {
+  display: table;
+}
+
+th {
+  text-align: left;
+  color: #6c6c6c;
+}
+
+table {
+  margin: 1rem 0;
+  width: 43vh;
+  border-collapse: collapse;
+}
+
+tbody tr {
+  border: 0.5px solid #bdbdbd;
+
+}
+
+tbody {
+  line-height: 1.5;
+}
+
+td {
+  line-height: 1.5;
+}
+
+.task-title-description {
+  display: inline-grid;
+  width: 95%;
+  padding: 0 0.5rem;
+  TEXT-ALIGN: justify;
+}
+
+.description-task-todo {
+  size: 11px;
+}
+
+.title-task-todo {
+  color: rgb(34, 34, 34);
+  size: 14px;
+}
+
+.table-date-time {
+  width: 5rem;
+}
+
+/* body */
+.task {}
