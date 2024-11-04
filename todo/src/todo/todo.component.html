@@ -19,34 +19,34 @@
 
   </div>
 
-  <div class="container-add-todo">
-    <div class="title-task-first-line">
+  <div class="container-todo">
+    <div class="container-add-alt-task">
+      <div class="title-task-first-line">
+        <input class="title-task" type="text" [(ngModel)]="newTask.title" placeholder="Insira o titulo da tarefa">
+        <button type="submit" (click)="save()">
+          <img src="assets/add.png" alt="add-task">
+        </button>
+      </div>
 
-      <input class="title-task" type="text" [(ngModel)]="newTask.title" placeholder="Insira o titulo da tarefa">
-      <button type="submit" (click)="save()">
-        <img src="assets/add.png" alt="add-task">
-      </button>
-    </div>
-
-    <div class="container-date-time-todo">
-      <div class="description">
-        <input class="description-input" type="text" [(ngModel)]="newTask.description"
-          placeholder="Insira a descrição da tarefa">
-        <input type="date" [(ngModel)]="newTask.date" class="icon-only date-icon">
-        <input type="time" [(ngModel)]="newTask.time" class="icon-only time-icon">
+      <div class="container-date-time-todo">
+        <div class="description">
+          <input class="description-input" type="text" [(ngModel)]="newTask.description"
+            placeholder="Insira a descrição da tarefa">
+          <input type="date" [(ngModel)]="newTask.date" class="icon-only date-icon">
+          <input type="time" [(ngModel)]="newTask.time" class="icon-only time-icon">
+        </div>
       </div>
     </div>
-    <div class="container-todo">
+    <div class="container-tasks">
       <div class="todo">
         <table>
-
           <thead>
             <tr>
               <th colspan="4">Tarefas ({{filteredTasks.length}})</th>
-              <th></th> <!-- Status -->
-              <th></th><!-- Date and time -->
-              <th></th> <!-- Update -->
-              <th></th> <!-- Delete -->
+              <th></th>
+              <th></th>
+              <th></th>
+              <th></th>
             </tr>
           </thead>
 
@@ -61,8 +61,8 @@
                 <span>{{task.description}}</span>
               </td>
               <td class="table-date-time"> {{task.date | date: 'dd/MM/yyyy'}} {{task.time}}</td>
-              <td><img id="update" src="assets/update.png" alt="update-task" (click)="selected(task);"></td>
-              <td><img id="delete" src="assets/delete.png" alt="delete-task" (click)="deleteTask(task.id)"></td>
+              <td><img id="id-update" src="assets/update.png" alt="update-task" (click)="selected(task);"></td>
+              <td><img id="id-delete" src="assets/delete.png" alt="delete-task" (click)="deleteTask(task.id)"></td>
 
             </tr>
           </tbody>
@@ -76,10 +76,10 @@
           <thead>
             <tr>
               <th colspan="4">Tarefas completas ({{completedTasks.length}})</th>
-              <th></th> <!-- Status -->
-              <th></th><!-- Date and time -->
-              <th></th> <!-- Update -->
-              <th></th> <!-- Delete -->
+              <th></th>
+              <th></th>
+              <th></th>
+              <th></th>
             </tr>
           </thead>
           <tbody>

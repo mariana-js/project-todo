@@ -1,7 +1,8 @@
+/*
 h1,
 h3 {
   margin: 0;
-  /* color: white; */
+
 }
 
 .head {
@@ -33,7 +34,7 @@ button {
   border: none;
 }
 
-/* ADD or ALT TASK  */
+
 .container-add-todo {
   display: grid;
   margin: 2rem 0;
@@ -93,7 +94,8 @@ button {
 
 .time-icon {
   right: 20px;
-
+  width: 30px;
+  height: 30px;
 }
 
 .icon-only::-webkit-calendar-picker-indicator {
@@ -105,7 +107,7 @@ button {
   display: none;
 }
 
-/* body */
+
 .container-todo {
   margin: 1rem 0;
   width: 42vh;
@@ -159,5 +161,7 @@ td {
   width: 5rem;
 }
 
-/* body */
+
 .task {}
+
+*/

@@ -59,14 +59,14 @@ export class TodoComponent {
     if (modeIcon) {
       modeIcon.src = this.darkmode ? "assets/mode-light.png" : "assets/mode-dark.png";
 
-      const updateIcons = document.querySelectorAll('.update') as NodeListOf<HTMLImageElement>;
+      const updateIcons = document.querySelectorAll('id-update') as NodeListOf<HTMLImageElement>;
       updateIcons.forEach(icon => {
           icon.src = this.darkmode ? "assets/update.png" : "assets/update-dark.png";
       });
-  
-      const deleteIcons = document.querySelectorAll('.delete') as NodeListOf<HTMLImageElement>;
+
+      const deleteIcons = document.querySelectorAll('id-delete') as NodeListOf<HTMLImageElement>;
       deleteIcons.forEach(icon => {
-          icon.src = this.darkmode ? "assets/delete.png" : "assets/delete-dark.png";
+          icon.src = this.darkmode ? "assets/delete-dark.png" : "assets/delete.png";
       });
     }
   }
