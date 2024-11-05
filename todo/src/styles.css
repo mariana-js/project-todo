@@ -1,38 +1,26 @@
-[data-theme="dark"] body{
-  background-color: #313131;
+[data-theme="dark"] body {
+  background: #FFFFFF;
   color: white;
 }
 
 [data-theme="dark"] .container-global {
   background-color: #252525;
 }
-/*
+
+
 body {
   position: relative;
+  background: #F5F6FF;
   margin: 0;
-  display: flex;
-  justify-content: center;
-
-
-}
-html, body {
-  height: 100%;
-  margin: 0;
-  background-color:  rgb(228 236 247);
 }
 
 .container-global {
-  height: 100vh;
-  padding: 2rem 4rem;
-  box-sizing: border-box;
+  position: absolute;
+  display: grid;
+  padding: 2rem;
+  width: 40rem;
+  height: max-content;
+  background: #E6EEFF;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+
 }
-
-body .container-global{
-  background-color: #f3f3f3;
- background-image: url(assets/Fundo/lua-natureza.avif);
-}
-
-
-
-
-*/

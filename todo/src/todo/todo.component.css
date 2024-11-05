@@ -1,167 +1,80 @@
-/*
-h1,
-h3 {
-  margin: 0;
-
-}
-
 .head {
-  display: contents;
-
+  display: inline-flex;
 }
+
+.title {}
 
 .modo {
-  display: flex;
-  justify-content: flex-end;
+  width: 14px;
+  height: 14px;
 }
 
-.title {
-  display: inline-flex;
-  align-items: center;
+.title .title-principal {
+  font-family: 'Roboto';
+  font-style: normal;
+  margin-left: 1rem;
+  color: #4D4B4B;
 }
 
-.image-title img {
-  height: 3.2rem;
-  width: 3.2rem;
-  margin-right: 1rem;
-}
-
-.title-principal {}
-
-button {
-  width: 2.1rem;
-  padding: 0.1rem;
-  border: none;
-}
-
-
-.container-add-todo {
+.container-todo {
+  position: relative;
   display: grid;
-  margin: 2rem 0;
+  align-items: start;
+  justify-items: center;
+}
+
+.container-add-alt-task {
+  display: inline-grid;
+  width: 40rem;
+  height: 3rem;
+  padding: 0.3rem 0.1rem 0.8rem 0.1rem;
+  background: #FFFFFF;
+  border-radius: 10px;
+}
+
+.container-add-alt-task hr {
+  color: gray;
+  width: 100%;
+  margin: 0;
 }
 
 .title-task-first-line {
   display: inline-flex;
-  justify-content: space-between;
 }
 
-.container-add-todo .description-input,
-.container-add-todo .title-task {
-  border: 1px solid rgb(173, 173, 173);
-  border-radius: 0.5px;
-  height: 2rem;
-  opacity: 0.9;
+.title-task-first-line button {
+  width: 34px;
+  height: 30px;
+
+  border: none;
+  background-color: white;
 }
 
-.title-task {
+.title-task-first-line input {
   width: 100%;
-}
+  border: none;
 
-.container-date-time-todo {
-  position: relative;
-  display: flex;
-  flex-direction: column;
+
+}
+.title-task-first-line input, .description .description-input{
+  margin-left: 0.7rem;
+  font-family: 'Inria Serif';
+  font-style: normal;
+  font-size: 16px;
+  color: #ABABAB;
+}
+.container-description-date-time-todo {
+  /* display: inline-flex; */
 }
 
 .description {
-  position: relative;
+  width: 100%;
+  display: inline-flex;
 }
 
-.description-input {
-  margin-top: 0;
-  width: 81%;
-  padding-right: 70px;
-}
-
-.icon-only {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-
-  width: 18px;
+.description .description-input {
   border: none;
-  background: transparent;
-  -webkit-appearance: none;
+  width: 100%;
 }
 
-.icon-only .date-icon input {
-  border: none;
-}
-
-.date-icon {
-  right: 50px;
-}
-
-.time-icon {
-  right: 20px;
-  width: 30px;
-  height: 30px;
-}
-
-.icon-only::-webkit-calendar-picker-indicator {
-  opacity: 1;
-}
-
-.icon-only::-webkit-clear-button,
-.icon-only::-webkit-inner-spin-button {
-  display: none;
-}
-
-
-.container-todo {
-  margin: 1rem 0;
-  width: 42vh;
-}
-
-.todo {
-  display: table;
-}
-
-th {
-  text-align: left;
-  color: #6c6c6c;
-}
-
-table {
-  margin: 1rem 0;
-  width: 43vh;
-  border-collapse: collapse;
-}
-
-tbody tr {
-  border: 0.5px solid #bdbdbd;
-
-}
-
-tbody {
-  line-height: 1.5;
-}
-
-td {
-  line-height: 1.5;
-}
-
-.task-title-description {
-  display: inline-grid;
-  width: 95%;
-  padding: 0 0.5rem;
-  TEXT-ALIGN: justify;
-}
-
-.description-task-todo {
-  size: 11px;
-}
-
-.title-task-todo {
-  color: rgb(34, 34, 34);
-  size: 14px;
-}
-
-.table-date-time {
-  width: 5rem;
-}
-
-
-.task {}
-
-*/
+.description .date .time {}
