@@ -1,12 +1,23 @@
 .head {
   display: inline-flex;
+  justify-content: space-between;
 }
 
-.title {}
+.title {
+  display: inline-flex;
+  align-items: center;
+}
 
-.modo {
-  width: 14px;
-  height: 14px;
+.image-title img {
+  width:4rem;
+  height:4rem;
+
+}
+
+.modo img{
+  cursor: pointer;
+  width: 28px;
+  height: 28px;
 }
 
 .title .title-principal {
@@ -14,15 +25,21 @@
   font-style: normal;
   margin-left: 1rem;
   color: #4D4B4B;
-}
 
+}
+h1, h3 {
+  margin:0;
+}
 .container-todo {
+  margin-top: 2rem;
   position: relative;
   display: grid;
   align-items: start;
   justify-items: center;
 }
-
+.container-tasks, .container-add-alt-task, .tasks, .completed-task{
+  margin: 1rem 0rem;
+}
 .container-add-alt-task {
   display: inline-grid;
   width: 40rem;
@@ -45,7 +62,7 @@
 .title-task-first-line button {
   width: 34px;
   height: 30px;
-
+  cursor: pointer;
   border: none;
   background-color: white;
 }
@@ -53,8 +70,6 @@
 .title-task-first-line input {
   width: 100%;
   border: none;
-
-
 }
 .title-task-first-line input, .description .description-input{
   margin-left: 0.7rem;

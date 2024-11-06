@@ -1,9 +1,7 @@
 <div class="container-global">
 
   <div class="head">
-    <div class="modo">
-      <img src="assets/mode-dark.png" alt="mode" (click)="modetoggle()" id="mode-icon">
-    </div>
+
 
     <div class="title">
 
@@ -16,7 +14,9 @@
         <h3 *ngIf="nowdate">{{ nowdate | date: 'dd/MM/yyyy' }}</h3>
       </div>
     </div>
-
+    <div class="modo">
+      <img src="assets/mode-dark.png" alt="mode" (click)="modetoggle()" id="mode-icon">
+    </div>
   </div>
 
   <div class="container-todo">
@@ -38,11 +38,11 @@
       </div>
     </div>
     <div class="container-tasks">
-      <div class="todo">
+      <div class="tasks">
         <table>
           <thead>
             <tr>
-              <th colspan="4">Tarefas ({{filteredTasks.length}})</th>
+              <th colspan="5">Tarefas ({{filteredTasks.length}})</th>
               <th></th>
               <th></th>
               <th></th>
@@ -70,12 +70,12 @@
         </table>
 
       </div>
-      <div class="task">
+      <div class="completed-task">
         <table>
 
           <thead>
             <tr>
-              <th colspan="4">Tarefas completas ({{completedTasks.length}})</th>
+              <th colspan="5">Tarefas completas ({{completedTasks.length}})</th>
               <th></th>
               <th></th>
               <th></th>
