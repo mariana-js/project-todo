@@ -1,22 +1,28 @@
 [data-theme="dark"] body {
-  background: #FFFFFF;
-  color: white;
+  background-color: #000000;
 }
-
 [data-theme="dark"] .container-global {
   background-color: #252525;
 }
-
+[data-theme="dark"] .container-add-alt-task input, [data-theme="dark"]  .container-add-alt-task[_ngcontent-ng-c2528115945],  [data-theme="dark"] hr,  [data-theme="dark"] .title-task-first-line,  [data-theme="dark"] .title-task-first-line[_ngcontent-ng-c2528115945] button[_ngcontent-ng-c2528115945] {
+  background-color: #393939;
+}
+[data-theme="dark"] h1, [data-theme="dark"] h3{
+  color: #fFFFFF;;
+}
 
 body {
   position: relative;
   background: #F5F6FF;
   margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .container-global {
-  position: absolute;
   display: grid;
+  margin: 1rem;
   padding: 2rem;
   width: 40rem;
   height: max-content;

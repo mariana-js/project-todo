@@ -1,8 +1,6 @@
 <div class="container-global">
 
   <div class="head">
-
-
     <div class="title">
 
       <div class="image-title">
@@ -42,64 +40,71 @@
         <table>
           <thead>
             <tr>
-              <th colspan="5">Tarefas ({{filteredTasks.length}})</th>
+              <th colspan="4">Tarefas ({{filteredTasks.length}})</th>
               <th></th>
               <th></th>
               <th></th>
+              <th class="up-del"></th>
+              <th class="up-del"></th>
               <th></th>
             </tr>
           </thead>
 
           <tbody>
             <tr *ngFor="let task of filteredTasks" class="task">
-
               <td (click)="toggleStatus(task)">
                 <input type="checkbox" name="status" [checked]="task.status">
               </td>
-              <td class="task-title-description">
-                <span>{{task.title}}</span>
-                <span>{{task.description}}</span>
-              </td>
-              <td class="table-date-time"> {{task.date | date: 'dd/MM/yyyy'}} {{task.time}}</td>
-              <td><img id="id-update" src="assets/update.png" alt="update-task" (click)="selected(task);"></td>
-              <td><img id="id-delete" src="assets/delete.png" alt="delete-task" (click)="deleteTask(task.id)"></td>
-
+              <td class="task-title">{{ task.title }}</td>
+              <td class="task-date">{{ task.date | date: 'dd/MM/yyyy' }}</td>
+              <td class="task-time"> {{ task.time }}</td>
+              <td class="task-up"><img id="id-update" src="assets/update.png" alt="update-task"
+                  (click)="selected(task);" /></td>
+              <td class="task-del"><img id="id-delete" src="assets/delete.png" alt="delete-task"
+                  (click)="deleteTask(task.id)" /></td>
+              <td class="task-description">{{task.description}}</td>
             </tr>
+
+
           </tbody>
 
         </table>
 
       </div>
       <div class="completed-task">
-        <table>
+        <div class="tasks">
+          <table>
 
-          <thead>
-            <tr>
-              <th colspan="5">Tarefas completas ({{completedTasks.length}})</th>
-              <th></th>
-              <th></th>
-              <th></th>
-              <th></th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr *ngFor="let task of completedTasks" class="task">
+            <thead>
+              <tr>
+                <th colspan="4">> Concluídas ({{completedTasks.length}})</th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th class="up-del"></th>
+                <th class="up-del"></th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let task of completedTasks" class="task">
+                <td (click)="toggleStatus(task)">
+                  <input type="checkbox" name="status" [checked]="task.status">
+                </td>
+                <td class="task-title">{{ task.title }}</td>
+                <td class="task-date">{{ task.date | date: 'dd/MM/yyyy' }}</td>
+                <td class="task-time"> {{ task.time }}</td>
+                <td class="task-up"><img id="id-update" src="assets/update.png" alt="update-task"
+                    (click)="selected(task);" /></td>
+                <td class="task-del"><img id="id-delete" src="assets/delete.png" alt="delete-task"
+                    (click)="deleteTask(task.id)" /></td>
+                <td class="task-description">{{task.description}}</td>
+              </tr>
 
-              <td (click)="toggleStatus(task)">
-                <input type="checkbox" name="status" [checked]="task.status">
-              </td>
-              <td class="task-title-description">
-                <span class="title-task-todo">{{task.title}}</span>
-                <span class="description-task-todo">{{task.description}}</span>
-              </td>
-              <td class="table-date-time"> {{task.date | date: 'dd/MM/yyyy'}} {{task.time}}</td>
-              <td><img id="update" src="assets/update.png" alt="update-task" (click)="selected(task);"></td>
-              <td><img id="delete" src="assets/delete.png" alt="delete-task" (click)="deleteTask(task.id)"></td>
-            </tr>
+            </tbody>
 
-          </tbody>
-
-        </table>
+          </table>
+        </div>
       </div>
 
     </div>

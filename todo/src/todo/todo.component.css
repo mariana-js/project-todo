@@ -9,12 +9,12 @@
 }
 
 .image-title img {
-  width:4rem;
-  height:4rem;
+  width: 4rem;
+  height: 4rem;
 
 }
 
-.modo img{
+.modo img {
   cursor: pointer;
   width: 28px;
   height: 28px;
@@ -27,9 +27,13 @@
   color: #4D4B4B;
 
 }
+
 h1, h3 {
-  margin:0;
+  margin: 0;
+  font-family: 'Roboto';
+  font-style: normal;
 }
+
 .container-todo {
   margin-top: 2rem;
   position: relative;
@@ -37,12 +41,14 @@ h1, h3 {
   align-items: start;
   justify-items: center;
 }
-.container-tasks, .container-add-alt-task, .tasks, .completed-task{
+
+.container-tasks, .container-add-alt-task, .tasks, .completed-task {
   margin: 1rem 0rem;
 }
+
 .container-add-alt-task {
   display: inline-grid;
-  width: 40rem;
+  width: 100%;
   height: 3rem;
   padding: 0.3rem 0.1rem 0.8rem 0.1rem;
   background: #FFFFFF;
@@ -67,19 +73,18 @@ h1, h3 {
   background-color: white;
 }
 
-.title-task-first-line input {
+.title-task-first-line input, .description .description-input {
   width: 100%;
   border: none;
+  outline: none;
 }
-.title-task-first-line input, .description .description-input{
+
+.title-task-first-line input, .description .description-input {
   margin-left: 0.7rem;
   font-family: 'Inria Serif';
   font-style: normal;
   font-size: 16px;
   color: #ABABAB;
-}
-.container-description-date-time-todo {
-  /* display: inline-flex; */
 }
 
 .description {
@@ -87,9 +92,93 @@ h1, h3 {
   display: inline-flex;
 }
 
-.description .description-input {
-  border: none;
-  width: 100%;
+.task td:last-child {
+  flex: 1 0 100%;
 }
 
-.description .date .time {}
+.task td:first-child {
+  flex: 0 0 min-content;
+  /* Checkbox ocupa o mínimo possível */
+}
+
+/* Estilo da tabela geral */
+table {
+  width: 100%;
+  border-collapse: separate;
+
+}
+
+/* Estilo do cabeçalho */
+thead th {
+  text-align: left;
+
+  font-family: 'Inria Serif';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  color: #4E4E4E;
+}
+
+/* Estilo das linhas */
+tbody .task {
+  background-color: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0.4rem 0;
+  width: 100%;
+  text-align: left;
+}
+
+/* Primeiras colunas em linha */
+.task td {
+  padding: 5px;
+  flex: 1;
+  display: flex;
+
+}
+
+/* Célula de título */
+.task-title {
+  font-weight: bold;
+  font-family: 'Inter';
+  font-size: 14px;
+  color: #141414;
+}
+
+/* Células de data e hora */
+.task-date,
+.task-time {
+  color: #6c757d;
+  font-size: 14px;
+
+}
+
+/* Ícones de atualização e exclusão */
+.task-up,
+.task-del {
+  cursor: pointer;
+  justify-content: center;
+  align-items: center;
+  margin-left: 0px;
+}
+
+
+/* Célula de descrição ocupando toda a linha */
+.task-description {
+  flex: 1 0 100%;
+  color: #6c757d;
+  font-size: 14px;
+}
+
+.task img {
+  width: 15px;
+  height: 15px;
+
+}
+
+.up-del {
+  flex: 0 0 min-content;
+}
