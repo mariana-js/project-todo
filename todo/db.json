@@ -4,9 +4,9 @@
       "id": "05ab3087-cc01-44d7-9056-25207b7de4d5",
       "title": "Java",
       "description": "Curso Udemy",
-      "date": "2024-11-20",
-      "time": "22:24",
-      "status": true
+      "date": null,
+      "time": null,
+      "status": false
     },
     {
       "id": "7098a27d-5555-47cd-8cc6-09ba45202342",
@@ -52,9 +52,9 @@
       "id": "6c425a1d-1c63-4276-8925-39728a7e0450",
       "title": "Adicionar HD",
       "description": "Verificar a CPU antes da troca ",
-      "date": null,
-      "time": null,
-      "status": false
+      "date": "2024-11-13",
+      "time": "12:27",
+      "status": true
     },
     {
       "id": "3c58e585-eddc-41c3-a9f7-c031b671fd5f",
@@ -70,7 +70,47 @@
       "description": "",
       "date": "2024-11-13",
       "time": "02:20",
-      "status": false
+      "status": true
+    },
+    {
+      "id": "5c98ca48-513d-45c1-8252-83e7d7db0f68",
+      "title": "Nova 1 ",
+      "description": "",
+      "date": null,
+      "time": null,
+      "status": true
+    },
+    {
+      "id": "b1416843-c316-4d23-a532-b112d6150f6f",
+      "title": "Nova 2",
+      "description": "",
+      "date": null,
+      "time": null,
+      "status": true
+    },
+    {
+      "id": "11a93cf0-7634-4644-a9b9-c3c2aab9ddbb",
+      "title": "Npva 3",
+      "description": "",
+      "date": null,
+      "time": null,
+      "status": true
+    },
+    {
+      "id": "0c2a5c56-a769-45d4-bc1d-051cda2f9cc2",
+      "title": "Nova 4",
+      "description": "",
+      "date": null,
+      "time": null,
+      "status": true
+    },
+    {
+      "id": "c9c440ea-5435-4eaa-92a7-e49a072d3831",
+      "title": "task",
+      "description": "",
+      "date": "2025-01-25",
+      "time": null,
+      "status": true
     }
   ]
 }

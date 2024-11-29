@@ -26,6 +26,9 @@ export class TodoComponent {
   taskSelected: boolean = false;
   darkmode = false;
   hide = true;
+  remove = "";
+  openOrder = false; // Controla se o menu está aberto ou não
+  criterio: string = 'semordem';
 
 
   newTask: Task = {
@@ -42,11 +45,59 @@ export class TodoComponent {
   ngOnInit() {
     this.nowdate = new Date();
     this.loadTasks();
+
   }
 
-  orderTasks() {
+  order(lista: Task[], criterio: 'title' | 'date'): void {
+    lista.sort((a, b) => {
+      let valorA: string | number = 0;
+      let valorB: string | number = 0;
 
+      if (criterio === 'date') {
+        // Colocar `null` no final e converter valores válidos para timestamp
+        const dataA = a.date ? new Date(a.date).getTime() : null;
+        const dataB = b.date ? new Date(b.date).getTime() : null;
 
+        // Nulls vão para o final
+        if (dataA === null && dataB === null) return 0;
+        if (dataA === null) return 1; // `a` vai para o final
+        if (dataB === null) return -1; // `b` vai para o final
+
+        // Ordenar valores válidos normalmente
+        return dataA - dataB;
+      } else if (criterio === 'title') {
+        // Garantir comparação de `title` como strings
+        valorA = a.title ? a.title.toLowerCase() : '';
+        valorB = b.title ? b.title.toLowerCase() : '';
+
+        // Comparação padrão
+        if (valorA > valorB) return 1;
+        if (valorA < valorB) return -1;
+        return 0;
+      }
+
+      return 0; // Caso não caia em nenhum critério
+    });
+  }
+
+  atributeOrderTasks(criterio: 'title' | 'date') {
+    this.criterio = criterio;
+    if (criterio === 'title') {
+      this.order(this.filteredTasks, 'title');
+      this.order(this.completed, 'title');
+
+    } else if (criterio === 'date') {
+      this.order(this.filteredTasks, 'date');
+      this.order(this.completed, 'date');
+    }
+  }
+
+  clearTime() {
+    this.newTask.date = null;
+    this.newTask.time = null;
+  }
+  toggleMenu() {
+    this.openOrder = !this.openOrder;
   }
 
   hidetask() {
@@ -64,29 +115,18 @@ export class TodoComponent {
         this.completed = [];
       }
     });
+    if (this.criterio !== 'semordem'){
+      this.atributeOrderTasks(this.criterio as 'title' | 'date')
+    }
   }
-
-  // loadTasks() {
-
-
-  //   this.todoService.getTasks().subscribe(task => {
-  //     this.tasks = task;
-  //     this.filteredTasks = this.tasks.filter(task => !task.status);
-  //     this.completedTasks = this.tasks.filter(task => task.status);
-
-  //   });
-
-
+  // iconClear() {
+  //   const modeClear = document.getElementById('modeClear') as HTMLImageElement;
+  //   modeClear.src = this.taskSelected ? "assets/x.png" : "";
   // }
-
-  iconClear() {
-    const modeClear = document.getElementById('modeClear') as HTMLImageElement;
-    modeClear.src = this.taskSelected ? "assets/x.png" : "";
-  }
-  hideClear() {
-    const modeClear = document.getElementById('modeClear') as HTMLImageElement;
-    modeClear.src = this.taskSelected ? "" : "assets/x.png";
-  }
+  // hideClear() {
+  //   const modeClear = document.getElementById('modeClear') as HTMLImageElement;
+  //   modeClear.src = this.taskSelected ? "" : "assets/x.png";
+  // }
   modetoggle() {
     this.darkmode = !this.darkmode;
 
@@ -139,20 +179,21 @@ export class TodoComponent {
 
   save() {
     if (this.taskSelected) {
-      this.iconClear()
       this.updateTask();
-
     } else {
       this.addTask();
     }
-    this.taskSelected = false;
+
     this.clear();
+    this.remove = "";
   }
 
   selected(task: Task) {
     this.editTask(task);
-    const s = this.taskSelected = true;
-    this.iconClear();
+    this.taskSelected = true;
+    const s = this.taskSelected;
+    console.log(this.taskSelected)
+    this.remove = "Remover data de conclusão";
     return s;
   }
 
@@ -165,6 +206,8 @@ export class TodoComponent {
       time: null,
       status: false
     }
+    this.taskSelected = false;
+
   }
   addTask() {
 
@@ -186,7 +229,8 @@ export class TodoComponent {
         if (index !== -1) this.tasks[index] = task;
         this.editedTask = null;
         this.loadTasks();
-        this.hideClear();
+        this.clear();
+
       });
     }
   }

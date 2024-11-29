@@ -7,7 +7,7 @@ export interface Task {
   id: string;
   title: string;
   description: string;
-  date: Date | null;
+  date?: string | Date | null;
   time: Time | null;
   status: boolean;
 }

@@ -13,7 +13,10 @@
   height: 4rem;
 
 }
-
+.remove{
+  color: red;
+  font-size: 12px;
+}
 .modo img {
   cursor: pointer;
   width: 28px;

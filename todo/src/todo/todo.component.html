@@ -18,8 +18,8 @@
   </div>
 
   <div class="container-todo">
-    <div >
-      <img (click)="clear()" id="modeClear" src="" alt="">
+    <div *ngIf="this.taskSelected === true">
+      <img (click)="clear()" src="assets/x.png" alt="">
     </div>
     <div class="container-add-alt-task">
       <div class="title-task-first-line">
@@ -36,15 +36,28 @@
           <input type="date" [(ngModel)]="newTask.date" class="icon-only date-icon">
           <input type="time" [(ngModel)]="newTask.time" class="icon-only time-icon">
         </div>
+        <div class="remove" *ngIf="this.taskSelected === true" >
+          <span (click)="clearTime()">{{remove}}</span>
+        </div>
       </div>
     </div>
     <div class="tasks-container">
 
       <div class="tasks">
+        <div (click)="toggleMenu()">
+          <img src="assets/ordenar.png" alt="">
+          <span>Classificar</span>
+        </div>
+        <div *ngIf="openOrder" class="menu-dropdown">
+          <span>Classificar por: </span>
+          <button (click)="atributeOrderTasks('date')">Data de Conclusão</button>
+          <button (click)="atributeOrderTasks('title')">Ordem Alfabética</button>
+          <button (click)="this.criterio = 'semordem'; loadTasks()">Remover classificação</button>
+        </div>
         <div>
-
           <h4>Tarefas ({{filteredTasks.length}})</h4>
         </div>
+
         <table>
           <thead>
             <tr>
