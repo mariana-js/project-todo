@@ -18,26 +18,30 @@
   </div>
 
   <div class="container-todo">
-    <div *ngIf="this.taskSelected === true">
-      <img (click)="clear()" src="assets/x.png" alt="">
-    </div>
-    <div class="container-add-alt-task">
-      <div class="title-task-first-line">
-        <input class="title-task" type="text" [(ngModel)]="newTask.title" placeholder="Insira o titulo da tarefa">
-        <button type="submit" (click)="save()">
-          <img src="assets/add.png" alt="add-task">
-        </button>
+
+    <div class="principal">
+      <div class="clear" *ngIf="this.taskSelected === true">
+        <img (click)="clear()" src="assets/x.png" alt="">
       </div>
-      <hr>
-      <div class="container-description-date-time-todo">
-        <div class="description">
-          <input class="description-input" type="text" [(ngModel)]="newTask.description"
-            placeholder="Insira a descrição da tarefa">
-          <input type="date" [(ngModel)]="newTask.date" class="icon-only date-icon">
-          <input type="time" [(ngModel)]="newTask.time" class="icon-only time-icon">
+      <div class="container-add-alt-task">
+
+        <div class="title-task-first-line">
+          <input class="title-task" type="text" [(ngModel)]="newTask.title" placeholder="Insira o titulo da tarefa">
+          <button type="submit" (click)="save()">
+            <img src="assets/add.png" alt="add-task">
+          </button>
         </div>
-        <div class="remove" *ngIf="this.taskSelected === true" >
-          <span (click)="clearTime()">{{remove}}</span>
+        <hr>
+        <div class="container-description-date-time-todo">
+          <div class="description">
+            <input class="description-input" type="text" [(ngModel)]="newTask.description"
+              placeholder="Insira a descrição da tarefa">
+            <input type="date" [(ngModel)]="newTask.date" class="icon">
+            <input type="time" [(ngModel)]="newTask.time" class="icon">
+          </div>
+          <div class="remove" *ngIf="this.taskSelected === true">
+            <span (click)="clearTime()">{{remove}}</span>
+          </div>
         </div>
       </div>
     </div>
@@ -61,7 +65,7 @@
         <table>
           <thead>
             <tr>
-            <th class="tas">
+              <th class="tas">
               </th>
               <th class="options"></th>
               <th class="des"></th>
@@ -71,7 +75,7 @@
           <tbody>
             <tr *ngFor="let task of filteredTasks" class="task">
 
-              <td  class="task-options-title-check">
+              <td class="task-options-title-check">
                 <span (click)="toggleStatus(task)">
                   <input type="checkbox" name="status" [checked]="task.status">
                 </span>
@@ -116,7 +120,7 @@
             <tbody>
               <tr *ngFor="let task of completed" class="task">
 
-                <td  class="task-options-title-check">
+                <td class="task-options-title-check">
                   <span (click)="toggleStatus(task)">
                     <input type="checkbox" name="status" [checked]="task.status">
                   </span>
@@ -125,7 +129,8 @@
                 <td class="task-options-describe">
                   <span>{{ task.date | date: 'dd/MM/yyyy' }}</span>
                   <span> {{ task.time }} </span>
-                  <span><img id="id-update" src="assets/update.png" alt="update-task" (click)="selected(task);" /></span>
+                  <span><img id="id-update" src="assets/update.png" alt="update-task"
+                      (click)="selected(task);" /></span>
                   <span><img id="id-delete" src="assets/delete.png" alt="delete-task"
                       (click)="deleteTask(task.id)" /></span>
                 </td>

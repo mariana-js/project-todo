@@ -45,7 +45,6 @@ export class TodoComponent {
   ngOnInit() {
     this.nowdate = new Date();
     this.loadTasks();
-
   }
 
   order(lista: Task[], criterio: 'title' | 'date'): void {
@@ -96,6 +95,7 @@ export class TodoComponent {
     this.newTask.date = null;
     this.newTask.time = null;
   }
+
   toggleMenu() {
     this.openOrder = !this.openOrder;
   }
@@ -104,6 +104,7 @@ export class TodoComponent {
     this.hide = !this.hide;
     this.loadTasks();
   }
+
   loadTasks() {
     this.todoService.getTasks().subscribe(task => {
       this.tasks = task;
@@ -119,14 +120,7 @@ export class TodoComponent {
       this.atributeOrderTasks(this.criterio as 'title' | 'date')
     }
   }
-  // iconClear() {
-  //   const modeClear = document.getElementById('modeClear') as HTMLImageElement;
-  //   modeClear.src = this.taskSelected ? "assets/x.png" : "";
-  // }
-  // hideClear() {
-  //   const modeClear = document.getElementById('modeClear') as HTMLImageElement;
-  //   modeClear.src = this.taskSelected ? "" : "assets/x.png";
-  // }
+
   modetoggle() {
     this.darkmode = !this.darkmode;
 
@@ -170,8 +164,6 @@ export class TodoComponent {
       }
     });
   }
-
-
   editTask(task: Task) {
     this.editedTask = { ...task };
     this.newTask = { ...task };

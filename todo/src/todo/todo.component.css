@@ -13,10 +13,41 @@
   height: 4rem;
 
 }
-.remove{
-  color: red;
-  font-size: 12px;
+
+.container-description-date-time-todo {
+  display: inline-grid;
+  justify-items: end;
 }
+.principal{
+  width: 100%;
+}
+.clear {
+  display: grid;
+  justify-content: end;
+  padding: 0.1rem;
+}
+
+.clear img {
+  width: 0.7rem;
+  height: 0.7rem;
+  cursor: pointer;
+}
+
+.remove {
+  color: #bd0303;
+  font-size: 13px;
+  background: #caddff;
+  width: 10rem;
+  display: grid;
+  justify-items: center;
+  border-radius: 14px;
+  margin-top: 0.6rem;
+  cursor: pointer;
+}
+.remove span{
+  cursor: pointer;
+}
+
 .modo img {
   cursor: pointer;
   width: 28px;
@@ -95,11 +126,23 @@ h3 {
   color: #ABABAB;
 }
 
+.title-task-first-line input:hover,
+.description .description-input:hover {
+  color: #353535;
+}
+
 .description {
   width: 100%;
   display: inline-flex;
+  margin-top: 0.2rem;
 }
 
+.icon {
+  border: none;
+  outline: none;
+  background-color: transparent;
+  color: #222222;
+}
 
 /* Styles table tasks ---------------------------------------------------------------------------------------------*/
 .tasks-container {
@@ -125,7 +168,7 @@ h4 {
   font-size: 13px;
   color: #4E4E4E;
   margin: 1.2rem 0 0rem 0;
-  cursor:pointer;
+  cursor: pointer;
 }
 
 /* Estilo das linhas */
@@ -204,14 +247,17 @@ h4 {
   .task-title {
     width: 12em;
   }
+
   .container-global {
     width: 80%;
     height: max-content;
   }
+
   .container-todo {
     width: 100%;
   }
 }
+
 @media screen and (min-width: 501) and (max-width: 600px) {
   .task-title {
     width: 1rem;
@@ -223,10 +269,11 @@ h4 {
     height: max-content;
   }
 
-  .tasks-container{
+  .tasks-container {
     width: 90%;
   }
 }
+
 @media screen and (min-width: 601) and (max-width: 700px) {
   .task-title {
     width: 15em;
@@ -236,10 +283,12 @@ h4 {
     width: 60%;
     height: max-content;
   }
-  .tasks-container{
+
+  .tasks-container {
     width: 90%;
   }
 }
+
 @media screen and (min-width: 701) and (max-width: 900px) {
   .task-title {
     width: 15em;
@@ -250,11 +299,13 @@ h4 {
     height: max-content;
   }
 }
+
 @media screen and (min-width: 901px) {
   .container-global {
     width: 40rem;
     height: max-content;
   }
+
   .task-title {
     width: 23em;
   }

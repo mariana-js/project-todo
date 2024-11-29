@@ -20,7 +20,7 @@
       "id": "e5a2d2a8-9942-47af-8396-385cf3c25b90",
       "title": "Psense",
       "description": "Fazer curso da udemy de pfsense e realizar projetos do curso.",
-      "date": "2024-11-13",
+      "date": "2024-11-20",
       "time": "13:15",
       "status": false
     },
@@ -30,7 +30,7 @@
       "description": "Projeto",
       "date": null,
       "time": null,
-      "status": true
+      "status": false
     },
     {
       "id": "3c4660d0-8f0d-4139-b4f8-0bf674e297f3",
@@ -54,7 +54,7 @@
       "description": "Verificar a CPU antes da troca ",
       "date": "2024-11-13",
       "time": "12:27",
-      "status": true
+      "status": false
     },
     {
       "id": "3c58e585-eddc-41c3-a9f7-c031b671fd5f",
@@ -62,7 +62,7 @@
       "description": "Projeto de analise da situação dos computadores da empresa",
       "date": "2024-11-13",
       "time": "15:09",
-      "status": true
+      "status": false
     },
     {
       "id": "9aeafd37-e016-4518-ac78-91106d2cfc93",
@@ -78,7 +78,7 @@
       "description": "",
       "date": null,
       "time": null,
-      "status": true
+      "status": false
     },
     {
       "id": "b1416843-c316-4d23-a532-b112d6150f6f",
@@ -111,6 +111,22 @@
       "date": "2025-01-25",
       "time": null,
       "status": true
+    },
+    {
+      "id": "5be9a8b9-81e2-45bb-8fea-f859203566a8",
+      "title": "Nova Tarefa ",
+      "description": "",
+      "date": null,
+      "time": null,
+      "status": true
+    },
+    {
+      "id": "e8888308-c79f-4001-9d18-11b3a60ed8aa",
+      "title": "Nova tarefa",
+      "description": "",
+      "date": null,
+      "time": null,
+      "status": false
     }
   ]
 }
