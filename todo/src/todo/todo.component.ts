@@ -22,8 +22,11 @@ export class TodoComponent {
   editedTask: Task | null = null;
   filteredTasks: Task[] = [];
   completedTasks: Task[] = [];
+  completed: Task[] = [];
   taskSelected: boolean = false;
   darkmode = false;
+  hide = true;
+
 
   newTask: Task = {
     id: '',
@@ -40,13 +43,49 @@ export class TodoComponent {
     this.nowdate = new Date();
     this.loadTasks();
   }
+
+  orderTasks() {
+
+
+  }
+
+  hidetask() {
+    this.hide = !this.hide;
+    this.loadTasks();
+  }
   loadTasks() {
     this.todoService.getTasks().subscribe(task => {
       this.tasks = task;
       this.filteredTasks = this.tasks.filter(task => !task.status);
       this.completedTasks = this.tasks.filter(task => task.status);
-
+      if (this.hide === false) {
+        this.completed = this.completedTasks;
+      } else {
+        this.completed = [];
+      }
     });
+  }
+
+  // loadTasks() {
+
+
+  //   this.todoService.getTasks().subscribe(task => {
+  //     this.tasks = task;
+  //     this.filteredTasks = this.tasks.filter(task => !task.status);
+  //     this.completedTasks = this.tasks.filter(task => task.status);
+
+  //   });
+
+
+  // }
+
+  iconClear() {
+    const modeClear = document.getElementById('modeClear') as HTMLImageElement;
+    modeClear.src = this.taskSelected ? "assets/x.png" : "";
+  }
+  hideClear() {
+    const modeClear = document.getElementById('modeClear') as HTMLImageElement;
+    modeClear.src = this.taskSelected ? "" : "assets/x.png";
   }
   modetoggle() {
     this.darkmode = !this.darkmode;
@@ -61,12 +100,12 @@ export class TodoComponent {
 
       const updateIcons = document.querySelectorAll('id-update') as NodeListOf<HTMLImageElement>;
       updateIcons.forEach(icon => {
-          icon.src = this.darkmode ? "assets/update.png" : "assets/update-dark.png";
+        icon.src = this.darkmode ? "assets/update.png" : "assets/update-dark.png";
       });
 
       const deleteIcons = document.querySelectorAll('id-delete') as NodeListOf<HTMLImageElement>;
       deleteIcons.forEach(icon => {
-          icon.src = this.darkmode ? "assets/delete-dark.png" : "assets/delete.png";
+        icon.src = this.darkmode ? "assets/delete-dark.png" : "assets/delete.png";
       });
     }
   }
@@ -79,10 +118,15 @@ export class TodoComponent {
         // Se a tarefa estiver concluída, mova para completedTasks
         this.filteredTasks = this.filteredTasks.filter(t => t.id !== task.id);
         this.completedTasks.push(task);
+        // this.completed.push(task);
+        this.loadTasks();
       } else {
         // Se a tarefa não estiver concluída, mova para filteredTasks
         this.completedTasks = this.completedTasks.filter(t => t.id !== task.id);
         this.filteredTasks.push(task);
+        this.hide === false;
+        this.loadTasks();
+
       }
     });
   }
@@ -95,7 +139,9 @@ export class TodoComponent {
 
   save() {
     if (this.taskSelected) {
+      this.iconClear()
       this.updateTask();
+
     } else {
       this.addTask();
     }
@@ -106,6 +152,7 @@ export class TodoComponent {
   selected(task: Task) {
     this.editTask(task);
     const s = this.taskSelected = true;
+    this.iconClear();
     return s;
   }
 
@@ -139,6 +186,7 @@ export class TodoComponent {
         if (index !== -1) this.tasks[index] = task;
         this.editedTask = null;
         this.loadTasks();
+        this.hideClear();
       });
     }
   }
@@ -147,6 +195,7 @@ export class TodoComponent {
       this.todoService.deleteTask(id).subscribe(() => {
         this.tasks = this.tasks.filter(task => task.id !== id);
         this.loadTasks();
+        this.clear();
       });
     }
 

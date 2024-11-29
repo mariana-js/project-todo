@@ -2,3 +2,13 @@ Iniciando api json:
 
 	npm i -D json-server
 	npx json-server db.json
+
+color a
+cd C:\Users\maria\OneDrive\Área de Trabalho\project-todo\todo
+cls
+npm start
+
+color a
+cd C:\Users\maria\OneDrive\Área de Trabalho\project-todo\todo
+cls
+npx json-server db.json

@@ -28,7 +28,8 @@
 
 }
 
-h1, h3 {
+h1,
+h3 {
   margin: 0;
   font-family: 'Roboto';
   font-style: normal;
@@ -42,8 +43,10 @@ h1, h3 {
   justify-items: center;
 }
 
-.container-tasks, .container-add-alt-task, .tasks, .completed-task {
-  margin: 1rem 0rem;
+.container-tasks,
+.container-add-alt-task,
+.tasks {
+  margin: 0.5rem 0rem;
 }
 
 .container-add-alt-task {
@@ -73,13 +76,15 @@ h1, h3 {
   background-color: white;
 }
 
-.title-task-first-line input, .description .description-input {
+.title-task-first-line input,
+.description .description-input {
   width: 100%;
   border: none;
   outline: none;
 }
 
-.title-task-first-line input, .description .description-input {
+.title-task-first-line input,
+.description .description-input {
   margin-left: 0.7rem;
   font-family: 'Inria Serif';
   font-style: normal;
@@ -92,52 +97,52 @@ h1, h3 {
   display: inline-flex;
 }
 
-.task td:last-child {
-  flex: 1 0 100%;
+
+/* Styles table tasks ---------------------------------------------------------------------------------------------*/
+.tasks-container {
+  width: 100%;
 }
 
-.task td:first-child {
-  flex: 0 0 min-content;
-  /* Checkbox ocupa o mínimo possível */
+.task td:last-child {
+  flex: 1 0 100%;
+  margin-left: 0.5rem;
 }
 
 /* Estilo da tabela geral */
 table {
   width: 100%;
-  border-collapse: separate;
-
+  border-collapse: collapse;
 }
 
 /* Estilo do cabeçalho */
-thead th {
+h4 {
   text-align: left;
-
-  font-family: 'Inria Serif';
+  font-family: "Inria Serif";
   font-style: normal;
-  font-weight: 400;
-  font-size: 14px;
+  font-size: 13px;
   color: #4E4E4E;
+  margin: 1.2rem 0 0rem 0;
+  cursor:pointer;
 }
 
 /* Estilo das linhas */
-tbody .task {
+.task {
   background-color: #ffffff;
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   padding: 10px;
-  display: flex;
-  flex-wrap: wrap;
   margin: 0.4rem 0;
   width: 100%;
-  text-align: left;
+  height: max-content;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
 }
 
-/* Primeiras colunas em linha */
-.task td {
-  padding: 5px;
-  flex: 1;
-  display: flex;
-
+.task-options-title-check {
+  margin-left: 0.3rem;
+  display: inline-flex;
+  align-items: center;
 }
 
 /* Célula de título */
@@ -146,39 +151,108 @@ tbody .task {
   font-family: 'Inter';
   font-size: 14px;
   color: #141414;
+  text-align: left;
+
+  white-space: nowrap;
+
+  overflow: hidden;
+  text-overflow: clip;
+  /* border: 1px solid #000000; */
 }
-
-/* Células de data e hora */
-.task-date,
-.task-time {
-  color: #6c757d;
-  font-size: 14px;
-
-}
-
-/* Ícones de atualização e exclusão */
-.task-up,
-.task-del {
-  cursor: pointer;
-  justify-content: center;
-  align-items: center;
-  margin-left: 0px;
-}
-
 
 /* Célula de descrição ocupando toda a linha */
 .task-description {
   flex: 1 0 100%;
   color: #6c757d;
   font-size: 14px;
+  flex-basis: 100%;
+  text-align: left;
+
+
+}
+
+.task-options-describe {
+  width: 30%;
+  color: #6c757d;
+  font-size: 14px;
+  display: inline-flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.task-options-describe span {
+  margin: 0 0.1rem;
 }
 
 .task img {
   width: 15px;
   height: 15px;
-
+  cursor: pointer;
 }
 
-.up-del {
-  flex: 0 0 min-content;
+.tas {
+  width: max-content;
+}
+
+
+/* RESPONSIVIDADE */
+
+@media screen and (max-width: 500px) {
+  .task-title {
+    width: 12em;
+  }
+  .container-global {
+    width: 80%;
+    height: max-content;
+  }
+  .container-todo {
+    width: 100%;
+  }
+}
+@media screen and (min-width: 501) and (max-width: 600px) {
+  .task-title {
+    width: 1rem;
+    /* display:contents; */
+  }
+
+  .container-global {
+    width: min-content;
+    height: max-content;
+  }
+
+  .tasks-container{
+    width: 90%;
+  }
+}
+@media screen and (min-width: 601) and (max-width: 700px) {
+  .task-title {
+    width: 15em;
+  }
+
+  .container-global {
+    width: 60%;
+    height: max-content;
+  }
+  .tasks-container{
+    width: 90%;
+  }
+}
+@media screen and (min-width: 701) and (max-width: 900px) {
+  .task-title {
+    width: 15em;
+  }
+
+  .container-global {
+    width: 60%;
+    height: max-content;
+  }
+}
+@media screen and (min-width: 901px) {
+  .container-global {
+    width: 40rem;
+    height: max-content;
+  }
+  .task-title {
+    width: 23em;
+  }
 }

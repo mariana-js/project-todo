@@ -1,14 +1,27 @@
 [data-theme="dark"] body {
   background-color: #000000;
 }
+
 [data-theme="dark"] .container-global {
   background-color: #252525;
 }
-[data-theme="dark"] .container-add-alt-task input, [data-theme="dark"]  .container-add-alt-task[_ngcontent-ng-c2528115945],  [data-theme="dark"] hr,  [data-theme="dark"] .title-task-first-line,  [data-theme="dark"] .title-task-first-line[_ngcontent-ng-c2528115945] button[_ngcontent-ng-c2528115945] {
+[data-theme="light"] .container-add-alt-task,
+[data-theme="light"] .title-task-first-line button {
+  background-color: white;
+}
+[data-theme="dark"] .container-add-alt-task input,
+[data-theme="dark"] .container-add-alt-task,
+[data-theme="dark"] hr,
+[data-theme="dark"] .title-task-first-line,
+[data-theme="dark"] .title-task-first-line button
+{
   background-color: #393939;
 }
-[data-theme="dark"] h1, [data-theme="dark"] h3{
-  color: #fFFFFF;;
+
+[data-theme="dark"] h1,
+[data-theme="dark"] h3
+{
+  color: #fFFFFF
 }
 
 body {
@@ -18,13 +31,14 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-wrap: nowrap;
 }
 
 .container-global {
   display: grid;
   margin: 1rem;
   padding: 2rem;
-  width: 40rem;
+  /* width: 80%; */
   height: max-content;
   background: #E6EEFF;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
