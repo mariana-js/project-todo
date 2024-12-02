@@ -58,8 +58,8 @@
     },
     {
       "id": "3c58e585-eddc-41c3-a9f7-c031b671fd5f",
-      "title": "Projeto Controle de Equipamentos",
-      "description": "Projeto de analise da situação dos computadores da empresa",
+      "title": "a Projeto Controle de Equipamentos",
+      "description": "Projeto de analise da situação dos computadores da empresa Projeto de analise da situação dos computadores da empresa Projeto de analise da situação dos computadores da empresa Projeto de analise da situação dos computadores da empresa Projeto de analise da situação dos computadores da empresa Projeto de analise da situação dos computadores da empresa Projeto de analise da situação dos computadores da empresa Projeto de analise da situação dos computadores da empresa Projeto de analise da situação dos computadores da empresa",
       "date": "2024-11-13",
       "time": "15:09",
       "status": false
@@ -126,6 +126,14 @@
       "description": "",
       "date": null,
       "time": null,
+      "status": false
+    },
+    {
+      "id": "b82dde00-15df-46e7-b1ef-394bf7080a02",
+      "title": "A nova tarefa precisa ser adicionada",
+      "description": "",
+      "date": "2024-12-04",
+      "time": "10:40",
       "status": false
     }
   ]

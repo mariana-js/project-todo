@@ -54,9 +54,9 @@
         </div>
         <div *ngIf="openOrder" class="menu-dropdown">
           <span>Classificar por: </span>
-          <button (click)="atributeOrderTasks('date')">Data de Conclusão</button>
-          <button (click)="atributeOrderTasks('title')">Ordem Alfabética</button>
-          <button (click)="this.criterio = 'semordem'; loadTasks()">Remover classificação</button>
+          <button (click)="atributeOrderTasks('date')"> <img src="assets\order-date.png" alt="">Data de Conclusão</button>
+          <button (click)="atributeOrderTasks('title')"> <img src="assets\order-word.png" alt="">Ordem Alfabética</button>
+          <button (click)="this.criterio = 'semordem'; loadTasks()"> <img src="assets\x2.png" alt="" class="x">Remover classificação</button>
         </div>
         <div>
           <h4>Tarefas ({{filteredTasks.length}})</h4>

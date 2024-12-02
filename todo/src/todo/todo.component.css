@@ -1,3 +1,60 @@
+/* Estilização básica do menu */
+.menu-dropdown {
+  position: absolute; /* Para que o menu flutue */
+  top: 110px; /* Ajuste conforme a posição do botão */
+  left: 0; /* Alinha ao lado esquerdo do botão */
+  background-color: #ffffff; /* Fundo branco */
+  border: 1px solid #ccc; /* Borda leve para destacar */
+  border-radius: 8px; /* Cantos arredondados */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra para dar profundidade */
+  padding: 4px; /* Espaçamento interno */
+  z-index: 1000; /* Para aparecer acima de outros elementos */
+  min-width: 150px; /* Largura mínima */
+}
+.menu-dropdown img{
+  width: 14px;
+  height: 14px;
+  margin-right: 2px;
+}
+
+/* Texto no topo do menu */
+.menu-dropdown span {
+  font-weight: bold;
+  display: block;
+  margin: 7px 9px;
+  color: #333;
+  font-size: 13px;
+}
+
+/* Botões dentro do menu */
+.menu-dropdown button {
+  display: flex;
+  width: 100%;
+  text-align: left;
+  padding: 6px;
+  border: none;
+  background-color: transparent;
+  color: #113c6a;
+  font-size: 12px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+/* Efeito ao passar o mouse sobre os botões */
+.menu-dropdown button:hover {
+  background-color: #f0f0f0; /* Fundo cinza claro */
+  color: #0056b3; /* Azul mais escuro */
+}
+
+/* Ajustes para dispositivos móveis (opcional) */
+@media (max-width: 600px) {
+  .menu-dropdown {
+    left: 10px; /* Alinhar mais ao centro */
+    right: 10px; /* Alinhar mais ao centro */
+    min-width: auto; /* Largura ajustável */
+  }
+}
+
 .head {
   display: inline-flex;
   justify-content: space-between;
