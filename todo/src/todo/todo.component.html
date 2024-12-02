@@ -36,11 +36,24 @@
           <div class="description">
             <input class="description-input" type="text" [(ngModel)]="newTask.description"
               placeholder="Insira a descrição da tarefa">
+            <!-- Adicao -->
+            <img src="assets\repeat.png" alt="" (click)="repeatTask()">
+            <!--  -->
             <input type="date" [(ngModel)]="newTask.date" class="icon">
             <input type="time" [(ngModel)]="newTask.time" class="icon">
           </div>
           <div class="remove" *ngIf="this.taskSelected === true">
             <span (click)="clearTime()">{{remove}}</span>
+            <!-- <span>{{newTask.repeat}}</span> -->
+          </div>
+          <div *ngIf="repetition" class="menu-dropdown">
+            <span>Repetir: </span>
+            <!-- Adicao -->
+            <button (click)="repetition = 'diariamente' ">Diariamente</button>
+            <button (click)="repetition = 'semanalmente' ">Semanalmente</button>
+            <button (click)="repetition = 'mensalmente' ">Mensalmente</button>
+            <button (click)="repetition = 'anualmente' ">Anualmente</button>
+            <button (click)="repetition = 'semrepetição' ">Sem repetição</button>
           </div>
         </div>
       </div>
@@ -54,9 +67,13 @@
         </div>
         <div *ngIf="openOrder" class="menu-dropdown">
           <span>Classificar por: </span>
-          <button (click)="atributeOrderTasks('date')"> <img src="assets\order-date.png" alt="">Data de Conclusão</button>
-          <button (click)="atributeOrderTasks('title')"> <img src="assets\order-word.png" alt="">Ordem Alfabética</button>
-          <button (click)="this.criterio = 'semordem'; loadTasks()"> <img src="assets\x2.png" alt="" class="x">Remover classificação</button>
+          <!-- Adicao -->
+          <button (click)="atributeOrderTasks('date')"> <img src="assets\order-date.png" alt="">Data de
+            Conclusão</button>
+          <button (click)="atributeOrderTasks('title')"> <img src="assets\order-word.png" alt="">Ordem
+            Alfabética</button>
+          <button (click)="this.criterio = 'semordem'; loadTasks()"> <img src="assets\x2.png" alt="" class="x">Remover
+            Classificação</button>
         </div>
         <div>
           <h4>Tarefas ({{filteredTasks.length}})</h4>
@@ -87,6 +104,9 @@
               <td class="task-options-describe">
                 <span>{{ task.date | date: 'dd/MM/yyyy' }}</span>
                 <span> {{ task.time }} </span>
+                <!-- Adicao -->
+                <span *ngIf="task.repeat && task.date"><img src="assets\repeat.png" alt=""></span>
+                <!--  -->
                 <span><img id="id-update" src="assets/update.png" alt="update-task" (click)="selected(task);" /></span>
                 <span><img id="id-delete" src="assets/delete.png" alt="delete-task"
                     (click)="deleteTask(task.id)" /></span>

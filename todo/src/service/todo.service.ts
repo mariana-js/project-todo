@@ -10,6 +10,8 @@ export interface Task {
   date?: string | Date | null;
   time: Time | null;
   status: boolean;
+  repeat: string;
+  // Adicao
 }
 
 @Injectable({

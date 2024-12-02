@@ -6,15 +6,17 @@
       "description": "Curso Udemy",
       "date": null,
       "time": null,
-      "status": false
+      "status": true,
+      "repeat": "diariamente"
     },
     {
       "id": "7098a27d-5555-47cd-8cc6-09ba45202342",
       "title": "PHP",
       "description": "Projeto e curso udemy",
-      "date": "2024-11-08",
-      "time": "02:00",
-      "status": false
+      "date": null,
+      "time": null,
+      "status": false,
+      "repeat": ""
     },
     {
       "id": "e5a2d2a8-9942-47af-8396-385cf3c25b90",
@@ -22,15 +24,8 @@
       "description": "Fazer curso da udemy de pfsense e realizar projetos do curso.",
       "date": "2024-11-20",
       "time": "13:15",
-      "status": false
-    },
-    {
-      "id": "835084ac-b186-48c8-8dba-3e2b17862820",
-      "title": "Agenda",
-      "description": "Projeto",
-      "date": null,
-      "time": null,
-      "status": false
+      "status": true,
+      "repeat": ""
     },
     {
       "id": "3c4660d0-8f0d-4139-b4f8-0bf674e297f3",
@@ -38,23 +33,17 @@
       "description": "",
       "date": null,
       "time": null,
-      "status": true
-    },
-    {
-      "id": "46c91928-f6cb-4514-b2b7-8dad80f7279d",
-      "title": "Limpeza da sala",
-      "description": "",
-      "date": null,
-      "time": null,
-      "status": true
+      "status": true,
+      "repeat": "anualmente"
     },
     {
       "id": "6c425a1d-1c63-4276-8925-39728a7e0450",
       "title": "Adicionar HD",
       "description": "Verificar a CPU antes da troca ",
-      "date": "2024-11-13",
+      "date": "2024-11-28",
       "time": "12:27",
-      "status": false
+      "status": false,
+      "repeat": ""
     },
     {
       "id": "3c58e585-eddc-41c3-a9f7-c031b671fd5f",
@@ -62,7 +51,8 @@
       "description": "Projeto de analise da situação dos computadores da empresa Projeto de analise da situação dos computadores da empresa Projeto de analise da situação dos computadores da empresa Projeto de analise da situação dos computadores da empresa Projeto de analise da situação dos computadores da empresa Projeto de analise da situação dos computadores da empresa Projeto de analise da situação dos computadores da empresa Projeto de analise da situação dos computadores da empresa Projeto de analise da situação dos computadores da empresa",
       "date": "2024-11-13",
       "time": "15:09",
-      "status": false
+      "status": false,
+      "repeat": "diariamente"
     },
     {
       "id": "9aeafd37-e016-4518-ac78-91106d2cfc93",
@@ -70,71 +60,8 @@
       "description": "",
       "date": "2024-11-13",
       "time": "02:20",
-      "status": true
-    },
-    {
-      "id": "5c98ca48-513d-45c1-8252-83e7d7db0f68",
-      "title": "Nova 1 ",
-      "description": "",
-      "date": null,
-      "time": null,
-      "status": false
-    },
-    {
-      "id": "b1416843-c316-4d23-a532-b112d6150f6f",
-      "title": "Nova 2",
-      "description": "",
-      "date": null,
-      "time": null,
-      "status": true
-    },
-    {
-      "id": "11a93cf0-7634-4644-a9b9-c3c2aab9ddbb",
-      "title": "Npva 3",
-      "description": "",
-      "date": null,
-      "time": null,
-      "status": true
-    },
-    {
-      "id": "0c2a5c56-a769-45d4-bc1d-051cda2f9cc2",
-      "title": "Nova 4",
-      "description": "",
-      "date": null,
-      "time": null,
-      "status": true
-    },
-    {
-      "id": "c9c440ea-5435-4eaa-92a7-e49a072d3831",
-      "title": "task",
-      "description": "",
-      "date": "2025-01-25",
-      "time": null,
-      "status": true
-    },
-    {
-      "id": "5be9a8b9-81e2-45bb-8fea-f859203566a8",
-      "title": "Nova Tarefa ",
-      "description": "",
-      "date": null,
-      "time": null,
-      "status": true
-    },
-    {
-      "id": "e8888308-c79f-4001-9d18-11b3a60ed8aa",
-      "title": "Nova tarefa",
-      "description": "",
-      "date": null,
-      "time": null,
-      "status": false
-    },
-    {
-      "id": "b82dde00-15df-46e7-b1ef-394bf7080a02",
-      "title": "A nova tarefa precisa ser adicionada",
-      "description": "",
-      "date": "2024-12-04",
-      "time": "10:40",
-      "status": false
+      "status": false,
+      "repeat": "mensalmente"
     }
   ]
 }

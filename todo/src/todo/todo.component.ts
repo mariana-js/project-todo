@@ -17,6 +17,32 @@ import { Task, TodoService } from '../service/todo.service';
   styleUrl: './todo.component.css'
 })
 export class TodoComponent {
+
+  repetition: string = '';
+
+  repeatTask() {
+    const dateTask = new Date(this.newTask.date + 'T00:00:00');
+
+    const newDateTask = new Date(dateTask);
+
+    if (this.repetition === 'diariamente') {
+      newDateTask.setDate(newDateTask.getDate() + 1);
+
+    } else if (this.repetition === 'semanalmente') {
+      newDateTask.setDate(newDateTask.getDate() + 7);
+
+    } else if (this.repetition === 'mensalmente') {
+      newDateTask.setMonth(newDateTask.getMonth() + 1);
+
+    } else if (this.repetition === 'anualmente') {
+      newDateTask.setFullYear(newDateTask.getFullYear() + 1);
+    } else {
+      console.log('Nenhuma repetição definida.');
+    }
+    this.newTask.date = newDateTask;
+    console.log(`Nova data da tarefa: ${newDateTask}`);
+  }
+
   tasks: Task[] = [];
   nowdate: Date | undefined;
   editedTask: Task | null = null;
@@ -27,7 +53,7 @@ export class TodoComponent {
   darkmode = false;
   hide = true;
   remove = "";
-  openOrder = false; // Controla se o menu está aberto ou não
+  openOrder = false;
   criterio: string = 'semordem';
 
 
@@ -37,7 +63,8 @@ export class TodoComponent {
     description: '',
     date: null,
     time: null,
-    status: false
+    status: false,
+    repeat: ''
   }
 
   constructor(private todoService: TodoService) { }
@@ -116,7 +143,7 @@ export class TodoComponent {
         this.completed = [];
       }
     });
-    if (this.criterio !== 'semordem'){
+    if (this.criterio !== 'semordem') {
       this.atributeOrderTasks(this.criterio as 'title' | 'date')
     }
   }
@@ -196,7 +223,8 @@ export class TodoComponent {
       description: '',
       date: null, // Definindo como null para não preencher automaticamente com a data atual
       time: null,
-      status: false
+      status: false,
+      repeat: ''
     }
     this.taskSelected = false;
 
