@@ -1,4 +1,4 @@
 color a
-cd C:\Projects\project-todo\todo
+cd C:\Projects\TODO\project-todo\todo
 cls
 npm start
