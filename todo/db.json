@@ -1,15 +1,6 @@
 {
   "taks": [
     {
-      "id": "05ab3087-cc01-44d7-9056-25207b7de4d5",
-      "title": "Java",
-      "description": "Curso Udemy",
-      "date": null,
-      "time": null,
-      "status": true,
-      "repeat": "diariamente"
-    },
-    {
       "id": "7098a27d-5555-47cd-8cc6-09ba45202342",
       "title": "PHP",
       "description": "Projeto e curso udemy",
@@ -19,49 +10,13 @@
       "repeat": ""
     },
     {
-      "id": "e5a2d2a8-9942-47af-8396-385cf3c25b90",
-      "title": "Psense",
-      "description": "Fazer curso da udemy de pfsense e realizar projetos do curso.",
-      "date": "2024-11-20",
-      "time": "13:15",
-      "status": true,
-      "repeat": ""
-    },
-    {
-      "id": "3c4660d0-8f0d-4139-b4f8-0bf674e297f3",
-      "title": "Backup Semanal",
-      "description": "",
-      "date": null,
+      "id": "89579b40-99ce-4d0b-bfc5-8fa20f58c56e",
+      "title": "Java",
+      "description": "Curso Udemy",
+      "date": "2024-12-02",
       "time": null,
       "status": true,
-      "repeat": "anualmente"
-    },
-    {
-      "id": "6c425a1d-1c63-4276-8925-39728a7e0450",
-      "title": "Adicionar HD",
-      "description": "Verificar a CPU antes da troca ",
-      "date": "2024-11-28",
-      "time": "12:27",
-      "status": false,
-      "repeat": ""
-    },
-    {
-      "id": "3c58e585-eddc-41c3-a9f7-c031b671fd5f",
-      "title": "a Projeto Controle de Equipamentos",
-      "description": "Projeto de analise da situação dos computadores da empresa Projeto de analise da situação dos computadores da empresa Projeto de analise da situação dos computadores da empresa Projeto de analise da situação dos computadores da empresa Projeto de analise da situação dos computadores da empresa Projeto de analise da situação dos computadores da empresa Projeto de analise da situação dos computadores da empresa Projeto de analise da situação dos computadores da empresa Projeto de analise da situação dos computadores da empresa",
-      "date": "2024-11-13",
-      "time": "15:09",
-      "status": false,
       "repeat": "diariamente"
-    },
-    {
-      "id": "9aeafd37-e016-4518-ac78-91106d2cfc93",
-      "title": "Fazer as compras",
-      "description": "",
-      "date": "2024-11-13",
-      "time": "02:20",
-      "status": false,
-      "repeat": "mensalmente"
     }
   ]
 }

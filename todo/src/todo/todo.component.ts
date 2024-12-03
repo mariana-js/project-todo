@@ -16,33 +16,8 @@ import { Task, TodoService } from '../service/todo.service';
   templateUrl: './todo.component.html',
   styleUrl: './todo.component.css'
 })
+
 export class TodoComponent {
-
-  repetition: string = '';
-
-  repeatTask() {
-    const dateTask = new Date(this.newTask.date + 'T00:00:00');
-
-    const newDateTask = new Date(dateTask);
-
-    if (this.repetition === 'diariamente') {
-      newDateTask.setDate(newDateTask.getDate() + 1);
-
-    } else if (this.repetition === 'semanalmente') {
-      newDateTask.setDate(newDateTask.getDate() + 7);
-
-    } else if (this.repetition === 'mensalmente') {
-      newDateTask.setMonth(newDateTask.getMonth() + 1);
-
-    } else if (this.repetition === 'anualmente') {
-      newDateTask.setFullYear(newDateTask.getFullYear() + 1);
-    } else {
-      console.log('Nenhuma repetição definida.');
-    }
-    this.newTask.date = newDateTask;
-    console.log(`Nova data da tarefa: ${newDateTask}`);
-  }
-
   tasks: Task[] = [];
   nowdate: Date | undefined;
   editedTask: Task | null = null;
@@ -55,7 +30,7 @@ export class TodoComponent {
   remove = "";
   openOrder = false;
   criterio: string = 'semordem';
-
+  r: boolean = false;
 
   newTask: Task = {
     id: '',
@@ -73,6 +48,8 @@ export class TodoComponent {
     this.nowdate = new Date();
     this.loadTasks();
   }
+
+
 
   order(lista: Task[], criterio: 'title' | 'date'): void {
     lista.sort((a, b) => {
@@ -121,6 +98,7 @@ export class TodoComponent {
   clearTime() {
     this.newTask.date = null;
     this.newTask.time = null;
+    this.newTask.repeat = '';
   }
 
   toggleMenu() {
@@ -170,39 +148,71 @@ export class TodoComponent {
       });
     }
   }
+  repeatToggle() {
+    this.r = !this.r;
+  }
 
+  reT() {
+    if (this.newTask.repeat) {
+      this.repeatTask();
+      this.newTask.id = '';
+      this.addTask();
+    } else {
+    }
+  }
+
+  repeatTask() {
+    const dateTask = new Date(this.newTask.date + 'T00:00:00');
+
+    const newDateTask = new Date(dateTask);
+
+    if (this.newTask.repeat === 'diariamente') {
+      newDateTask.setDate(newDateTask.getDate() + 1);
+
+    } else if (this.newTask.repeat === 'semanalmente') {
+      newDateTask.setDate(newDateTask.getDate() + 7);
+
+    } else if (this.newTask.repeat === 'mensalmente') {
+      newDateTask.setMonth(newDateTask.getMonth() + 1);
+
+    } else if (this.newTask.repeat === 'anualmente') {
+      newDateTask.setFullYear(newDateTask.getFullYear() + 1);
+    } else {
+    }
+    const formattedDate = newDateTask.toISOString().split('T')[0];
+
+    this.newTask.date = formattedDate;
+  }
   toggleStatus(task: Task) {
-    task.status = !task.status; // Altera o status localmente
+    task.status = !task.status;
     this.todoService.updateTask(task).subscribe(() => {
-      // Atualiza as listas localmente sem recarregar todas as tarefas
       if (task.status) {
-        // Se a tarefa estiver concluída, mova para completedTasks
         this.filteredTasks = this.filteredTasks.filter(t => t.id !== task.id);
         this.completedTasks.push(task);
-        // this.completed.push(task);
-        this.loadTasks();
       } else {
-        // Se a tarefa não estiver concluída, mova para filteredTasks
         this.completedTasks = this.completedTasks.filter(t => t.id !== task.id);
         this.filteredTasks.push(task);
         this.hide === false;
-        this.loadTasks();
-
       }
     });
+    this.loadTasks();
   }
+
+
   editTask(task: Task) {
     this.editedTask = { ...task };
     this.newTask = { ...task };
   }
 
   save() {
+    if (this.newTask.date === null || (this.newTask.date === null && this.newTask.time)) {
+      this.newTask.repeat = '';
+    }
     if (this.taskSelected) {
       this.updateTask();
     } else {
       this.addTask();
     }
-
     this.clear();
     this.remove = "";
   }
@@ -227,6 +237,7 @@ export class TodoComponent {
       repeat: ''
     }
     this.taskSelected = false;
+    this.r = false
 
   }
   addTask() {
@@ -264,5 +275,4 @@ export class TodoComponent {
     }
 
   }
-
 }

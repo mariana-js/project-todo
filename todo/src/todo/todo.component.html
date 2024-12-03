@@ -20,6 +20,7 @@
   <div class="container-todo">
 
     <div class="principal">
+      <span>{{newTask.repeat}}</span>
       <div class="clear" *ngIf="this.taskSelected === true">
         <img (click)="clear()" src="assets/x.png" alt="">
       </div>
@@ -36,47 +37,52 @@
           <div class="description">
             <input class="description-input" type="text" [(ngModel)]="newTask.description"
               placeholder="Insira a descrição da tarefa">
-            <!-- Adicao -->
-            <img src="assets\repeat.png" alt="" (click)="repeatTask()">
-            <!--  -->
-            <input type="date" [(ngModel)]="newTask.date" class="icon">
-            <input type="time" [(ngModel)]="newTask.time" class="icon">
+            <img src="assets\repeat.png" alt="" (click)="repeatToggle()">
+
+            <input type="date" [(ngModel)]="newTask.date" class="icon date">
+            <input type="time" [(ngModel)]="newTask.time" class="icon time">
+          </div>
+          <div class="repeat" *ngIf="r===true" [(ngModel)]="newTask.repeat">
+            <button (click)="newTask.repeat = ('diariamente')">Diariamente</button>
+            <button (click)="newTask.repeat =  ('semanalmente')">Semanalmente</button>
+            <button (click)="newTask.repeat = ('mensalmente') ">Mensalmente</button>
+            <button (click)="newTask.repeat = ('anualmente')">Anualmente</button>
+            <button (click)="newTask.repeat = ('') ">Sem repetição</button>
           </div>
           <div class="remove" *ngIf="this.taskSelected === true">
             <span (click)="clearTime()">{{remove}}</span>
-            <!-- <span>{{newTask.repeat}}</span> -->
-          </div>
-          <div *ngIf="repetition" class="menu-dropdown">
-            <span>Repetir: </span>
-            <!-- Adicao -->
-            <button (click)="repetition = 'diariamente' ">Diariamente</button>
-            <button (click)="repetition = 'semanalmente' ">Semanalmente</button>
-            <button (click)="repetition = 'mensalmente' ">Mensalmente</button>
-            <button (click)="repetition = 'anualmente' ">Anualmente</button>
-            <button (click)="repetition = 'semrepetição' ">Sem repetição</button>
           </div>
         </div>
       </div>
     </div>
     <div class="tasks-container">
+      <div>
+        <div class="tasks">
 
-      <div class="tasks">
-        <div (click)="toggleMenu()">
-          <img src="assets/ordenar.png" alt="">
-          <span>Classificar</span>
-        </div>
-        <div *ngIf="openOrder" class="menu-dropdown">
-          <span>Classificar por: </span>
-          <!-- Adicao -->
-          <button (click)="atributeOrderTasks('date')"> <img src="assets\order-date.png" alt="">Data de
-            Conclusão</button>
-          <button (click)="atributeOrderTasks('title')"> <img src="assets\order-word.png" alt="">Ordem
-            Alfabética</button>
-          <button (click)="this.criterio = 'semordem'; loadTasks()"> <img src="assets\x2.png" alt="" class="x">Remover
-            Classificação</button>
-        </div>
-        <div>
-          <h4>Tarefas ({{filteredTasks.length}})</h4>
+          <div class="title-classification">
+
+
+            <h4>Tarefas ({{filteredTasks.length}})</h4>
+
+
+            <div (click)="toggleMenu()">
+              <img src="assets/ordenar.png" alt="">
+              <span>Classificar</span>
+            </div>
+            <div *ngIf="openOrder" class="menu-dropdown">
+              <div>
+                <span>Classificar por: </span>
+              </div>
+              <div>
+                <button (click)="atributeOrderTasks('date')"> <img src="assets\order-date.png" alt="">Data de
+                  Conclusão</button>
+                <button (click)="atributeOrderTasks('title')"> <img src="assets\order-word.png" alt="">Ordem
+                  Alfabética</button>
+                <button (click)="this.criterio = 'semordem'; loadTasks()"> <img src="assets\x2.png" alt="" class="x">Remover
+                  Classificação</button> </div>
+            </div>
+
+          </div>
         </div>
 
         <table>
@@ -93,7 +99,7 @@
             <tr *ngFor="let task of filteredTasks" class="task">
 
               <td class="task-options-title-check">
-                <span (click)="toggleStatus(task)">
+                <span (click)=" this.selected(task); this.reT(); this.toggleStatus(task); ">
                   <input type="checkbox" name="status" [checked]="task.status">
                 </span>
 
@@ -104,17 +110,13 @@
               <td class="task-options-describe">
                 <span>{{ task.date | date: 'dd/MM/yyyy' }}</span>
                 <span> {{ task.time }} </span>
-                <!-- Adicao -->
                 <span *ngIf="task.repeat && task.date"><img src="assets\repeat.png" alt=""></span>
-                <!--  -->
                 <span><img id="id-update" src="assets/update.png" alt="update-task" (click)="selected(task);" /></span>
                 <span><img id="id-delete" src="assets/delete.png" alt="delete-task"
                     (click)="deleteTask(task.id)" /></span>
               </td>
               <td class="task-description">{{task.description}}</td>
-
             </tr>
-
 
           </tbody>
 
@@ -149,6 +151,7 @@
                 <td class="task-options-describe">
                   <span>{{ task.date | date: 'dd/MM/yyyy' }}</span>
                   <span> {{ task.time }} </span>
+                  <span *ngIf="task.repeat && task.date"><img src="assets\repeat.png" alt=""></span>
                   <span><img id="id-update" src="assets/update.png" alt="update-task"
                       (click)="selected(task);" /></span>
                   <span><img id="id-delete" src="assets/delete.png" alt="delete-task"
