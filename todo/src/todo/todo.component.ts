@@ -5,16 +5,15 @@ import { FormsModule } from '@angular/forms';
 import { Task, TodoService } from '../service/todo.service';
 
 @Component({
-  selector: 'app-todo',
-  standalone: true,
-  imports: [
-    CommonModule,
-    FormsModule,
-    HttpClientModule
-  ],
-  providers: [TodoService],
-  templateUrl: './todo.component.html',
-  styleUrl: './todo.component.css'
+    selector: 'app-todo',
+    imports: [
+        CommonModule,
+        FormsModule,
+        HttpClientModule
+    ],
+    providers: [TodoService],
+    templateUrl: './todo.component.html',
+    styleUrl: './todo.component.css'
 })
 
 export class TodoComponent {
