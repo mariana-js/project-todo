@@ -5,15 +5,16 @@ import { FormsModule } from '@angular/forms';
 import { Task, TodoService } from '../service/todo.service';
 
 @Component({
-    selector: 'app-todo',
-    imports: [
-        CommonModule,
-        FormsModule,
-        HttpClientModule
-    ],
-    providers: [TodoService],
-    templateUrl: './todo.component.html',
-    styleUrl: './todo.component.css'
+  selector: 'app-todo',
+  standalone: true,
+  imports: [
+    CommonModule,
+    FormsModule,
+    HttpClientModule
+  ],
+  providers: [TodoService],
+  templateUrl: './todo.component.html',
+  styleUrl: './todo.component.css'
 })
 
 export class TodoComponent {
@@ -30,6 +31,8 @@ export class TodoComponent {
   openOrder = false;
   criterio: string = 'semordem';
   r: boolean = false;
+  repitition: string = '';
+  select: boolean = false;
 
   newTask: Task = {
     id: '',
@@ -56,29 +59,24 @@ export class TodoComponent {
       let valorB: string | number = 0;
 
       if (criterio === 'date') {
-        // Colocar `null` no final e converter valores válidos para timestamp
         const dataA = a.date ? new Date(a.date).getTime() : null;
         const dataB = b.date ? new Date(b.date).getTime() : null;
 
-        // Nulls vão para o final
         if (dataA === null && dataB === null) return 0;
-        if (dataA === null) return 1; // `a` vai para o final
-        if (dataB === null) return -1; // `b` vai para o final
+        if (dataA === null) return 1;
+        if (dataB === null) return -1;
 
-        // Ordenar valores válidos normalmente
         return dataA - dataB;
       } else if (criterio === 'title') {
-        // Garantir comparação de `title` como strings
         valorA = a.title ? a.title.toLowerCase() : '';
         valorB = b.title ? b.title.toLowerCase() : '';
 
-        // Comparação padrão
         if (valorA > valorB) return 1;
         if (valorA < valorB) return -1;
         return 0;
       }
 
-      return 0; // Caso não caia em nenhum critério
+      return 0;
     });
   }
 
@@ -124,7 +122,9 @@ export class TodoComponent {
       this.atributeOrderTasks(this.criterio as 'title' | 'date')
     }
   }
-
+  toggleMenuRepeat() {
+    this.r = !this.r;
+  }
   modetoggle() {
     this.darkmode = !this.darkmode;
 
@@ -151,7 +151,9 @@ export class TodoComponent {
     this.r = !this.r;
   }
 
-  reT() {
+  reT(task: Task) {
+    this.newTask = { ...task };
+
     if (this.newTask.repeat) {
       this.repeatTask();
       this.newTask.id = '';
@@ -220,7 +222,6 @@ export class TodoComponent {
     this.editTask(task);
     this.taskSelected = true;
     const s = this.taskSelected;
-    console.log(this.taskSelected)
     this.remove = "Remover data de conclusão";
     return s;
   }
@@ -230,7 +231,7 @@ export class TodoComponent {
       id: '',
       title: '',
       description: '',
-      date: null, // Definindo como null para não preencher automaticamente com a data atual
+      date: null,
       time: null,
       status: false,
       repeat: ''

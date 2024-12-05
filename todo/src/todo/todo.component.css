@@ -1,3 +1,7 @@
+.repitition {
+  padding-right: 0.8rem;
+  text-transform: capitalize;
+}
 .head {
   display: inline-flex;
   justify-content: space-between;
@@ -24,9 +28,10 @@
 }
 
 .clear {
-  display: grid;
+  display: flex;
   justify-content: end;
   padding: 0.1rem;
+  align-items: center;
 }
 
 .clear img {
@@ -35,21 +40,17 @@
   cursor: pointer;
 }
 
-.remove {
+.remove button {
   color: #bd0303;
   font-size: 13px;
   background: #caddff;
-  width: 10rem;
+  /* width: 10rem; */
   display: grid;
   justify-items: center;
   border-radius: 14px;
   margin-top: 0.6rem;
-  /* cursor: pointer; */
-
-}
-
-.remove span {
   cursor: pointer;
+  border: none;
 }
 
 .modo img {
@@ -127,18 +128,23 @@ h3 {
   font-family: 'Inria Serif';
   font-style: normal;
   font-size: 16px;
-  color: #ABABAB;
+  color: #353535;
 }
 
 .title-task-first-line input:hover,
 .description .description-input:hover {
-  color: #353535;
+  color: #000000;
 }
 
 .description {
   width: 100%;
   display: inline-flex;
   margin-top: 0.2rem;
+}
+
+.description img{
+
+  padding-right: 3px;
 }
 
 .icon {
@@ -198,29 +204,31 @@ h4 {
 
 }
 
-h4{
+h4 {
   margin: 1.2rem 0 0rem 0;
 }
-.menu-dropdown {
-  position: absolute; /* Para que o menu flutue */
-  top: 130px; /* Ajuste conforme a posição do botão */
-  left: 0; /* Alinha ao lado esquerdo do botão */
-  background-color: #ffffff; /* Fundo branco */
-  border: 1px solid #ccc; /* Borda leve para destacar */
-  border-radius: 8px; /* Cantos arredondados */
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra para dar profundidade */
-  padding: 4px; /* Espaçamento interno */
-  z-index: 1000; /* Para aparecer acima de outros elementos */
-  min-width: 150px; /* Largura mínima */
+
+.menu-dropdown, .repeat {
+  position: absolute;
+  top: 150px;
+  left: 0;
+  background-color: #ffffff;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 4px;
+  z-index: 1000;
+  min-width: 150px;
 }
-.menu-dropdown img{
+
+.menu-dropdown img {
   width: 14px;
   height: 14px;
-  margin-right: 2px;
+  margin-right: 10px;
 }
 
 /* Texto no topo do menu */
-.menu-dropdown span {
+.menu-dropdown span, .repeat span {
   font-weight: bold;
   display: block;
   margin: 7px 9px;
@@ -229,7 +237,7 @@ h4{
 }
 
 /* Botões dentro do menu */
-.menu-dropdown button {
+.menu-dropdown button, .repeat button {
   display: flex;
   width: 100%;
   text-align: left;
@@ -240,20 +248,50 @@ h4{
   font-size: 12px;
   cursor: pointer;
   transition: background-color 0.2s ease;
+
+
+}
+.repeat button{
+  display: inline-flex;
+  align-items: center;
+}
+.repeat {
+  top: 95px;
+  display: inline-grid;
+  left: 62%;
+  justify-items: stretch;
+
+}
+
+.repeat img {
+  width: 11px;
+  height: 11px;
+  padding-right: 0.7rem;
 }
 
 /* Efeito ao passar o mouse sobre os botões */
-.menu-dropdown button:hover {
-  background-color: #f0f0f0; /* Fundo cinza claro */
-  color: #0056b3; /* Azul mais escuro */
+.menu-dropdown button:hover, .repeat button:hover {
+  background-color: #f0f0f0;
+  /* Fundo cinza claro */
+  color: #0056b3;
+  /* Azul mais escuro */
 }
 
 /* Ajustes para dispositivos móveis (opcional) */
 @media (max-width: 600px) {
   .menu-dropdown {
-    left: 10px; /* Alinhar mais ao centro */
-    right: 10px; /* Alinhar mais ao centro */
-    min-width: auto; /* Largura ajustável */
+    left: 10px;
+    right: 10px;
+    min-width: auto;
+  }
+
+  .repeat {
+    left: 10px;
+    /* Alinhar mais ao centro */
+    right: 10px;
+    /* Alinhar mais ao centro */
+    min-width: auto;
+    /* Largura ajustável */
   }
 }
 
@@ -279,7 +317,7 @@ h4{
 
 /* Célula de título */
 .task-title {
-  font-weight: bold;
+  font-weight: 500;
   font-family: 'Inter';
   font-size: 14px;
   color: #141414;
@@ -293,6 +331,14 @@ h4{
 }
 
 /* Célula de descrição ocupando toda a linha */
+/* input[type="checkbox"] {
+  color: #000000;
+  width: 25px;
+  height: 25px;
+  clip-path: circle(46% at 50% 50%);
+
+
+} */
 .task-description {
   flex: 1 0 100%;
   color: #6c757d;
@@ -328,8 +374,23 @@ h4{
 
 
 /* RESPONSIVIDADE */
+@media screen and (max-width: 400px) {
+  .task-title {
+    width: 12em;
+  }
 
-@media screen and (max-width: 500px) {
+  .container-global {
+    width: 80%;
+    height: max-content;
+  }
+
+  .container-todo {
+    width: 100%;
+  }
+
+}
+
+@media screen and (min-width: 401) and (max-width:500px) {
   .task-title {
     width: 12em;
   }
@@ -358,6 +419,7 @@ h4{
   .tasks-container {
     width: 90%;
   }
+
 }
 
 @media screen and (min-width: 601) and (max-width: 700px) {
@@ -373,6 +435,9 @@ h4{
   .tasks-container {
     width: 90%;
   }
+  .repeat{
+    width: 48%;
+  }
 }
 
 @media screen and (min-width: 701) and (max-width: 900px) {
@@ -384,6 +449,10 @@ h4{
     width: 60%;
     height: max-content;
   }
+
+  .repeat {
+    width: 48%;
+  }
 }
 
 @media screen and (min-width: 901px) {
@@ -394,5 +463,11 @@ h4{
 
   .task-title {
     width: 23em;
+  }
+
+  .repeat {
+    /* top: 78px; */
+    left: 70%;
+    width: 29%;
   }
 }
