@@ -33,6 +33,7 @@ export class TodoComponent {
   r: boolean = false;
   repitition: string = '';
   select: boolean = false;
+  // selectClearTime: boolean = false;
 
   newTask: Task = {
     id: '',
@@ -44,6 +45,7 @@ export class TodoComponent {
     repeat: ''
   }
 
+  
   constructor(private todoService: TodoService) { }
 
   ngOnInit() {
@@ -197,6 +199,7 @@ export class TodoComponent {
       }
     });
     this.loadTasks();
+    this.clear();
   }
 
 

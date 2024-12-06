@@ -22,7 +22,7 @@
     <div class="principal">
       <div style="height: 19px;">
 
-        <div class="clear" *ngIf="this.taskSelected === true || select === true">
+        <div class="clear" *ngIf="(this.taskSelected === true || select === true) && newTask.title !== ''">
           <span class="repitition">{{newTask.repeat || repitition}}</span>
           <img (click)="clear(); select = false" src="assets/x.png" alt="">
         </div>
@@ -30,7 +30,8 @@
       <div class="container-add-alt-task">
 
         <div class="title-task-first-line">
-          <input (click)="select = true" class="title-task" type="text" [(ngModel)]="newTask.title" placeholder="Insira o titulo da tarefa">
+          <input (click)="select = true" class="title-task" type="text" [(ngModel)]="newTask.title"
+            placeholder="Insira o titulo da tarefa">
           <button type="submit" (click)="save();select = false">
             <img src="assets/add.png" alt="add-task">
           </button>
@@ -65,11 +66,13 @@
               <img src="assets\no-repeat.png" alt="">Sem repetição
             </button>
           </div>
-          <div class="remove" *ngIf="this.taskSelected === true && (newTask.date || newTask.time) !== null">
-            <button (click)="clearTime()">{{remove}}</button>
-          </div>
         </div>
       </div>
+      <div class="remove"
+        *ngIf="(this.taskSelected === true && (newTask.date || newTask.time) !== null) || ((newTask.date || newTask.time) !== null)">
+        <button (click)="clearTime()">{{remove}}</button>
+      </div>
+
     </div>
     <div class="tasks-container">
       <div>
@@ -90,12 +93,16 @@
                 <span>Classificar por: </span>
               </div>
               <div>
-                <button (click)="atributeOrderTasks('date'); toggleMenu()"> <img src="assets\order-date.png" alt="">Data de
+                <button (click)="atributeOrderTasks('date'); toggleMenu()"> <img src="assets\order-date.png" alt="">Data
+                  de
                   Conclusão</button>
-                <button (click)="atributeOrderTasks('title'); toggleMenu()"> <img src="assets\order-word.png" alt="">Ordem
+                <button (click)="atributeOrderTasks('title'); toggleMenu()"> <img src="assets\order-word.png"
+                    alt="">Ordem
                   Alfabética</button>
-                <button (click)="this.criterio = 'semordem'; loadTasks(); toggleMenu()"> <img src="assets\x2.png" alt="" class="x">Remover
-                  Classificação</button> </div>
+                <button (click)="this.criterio = 'semordem'; loadTasks(); toggleMenu()"> <img src="assets\x2.png" alt=""
+                    class="x">Remover
+                  Classificação</button>
+              </div>
             </div>
 
           </div>
