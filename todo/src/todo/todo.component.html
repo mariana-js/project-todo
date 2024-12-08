@@ -20,9 +20,13 @@
   <div class="container-todo">
 
     <div class="principal">
-      <div style="height: 19px;">
+      <div class="div-up-clear">
 
-        <div class="clear" *ngIf="(this.taskSelected === true || select === true) && newTask.title !== ''">
+        <div class="update-page">
+          <img (click)="loadTasks()" src="assets\atualizar.png" alt="">
+        </div>
+
+        <div class="clear" *ngIf="(this.taskSelected === true || select === true) && (newTask.title || newTask.description || newTask.date || newTask.time)"        >
           <span class="repitition">{{newTask.repeat || repitition}}</span>
           <img (click)="clear(); select = false" src="assets/x.png" alt="">
         </div>
@@ -32,14 +36,14 @@
         <div class="title-task-first-line">
           <input (click)="select = true" class="title-task" type="text" [(ngModel)]="newTask.title"
             placeholder="Insira o titulo da tarefa">
-          <button type="submit" (click)="save();select = false">
+          <button type="submit" (click)="save(); select = false">
             <img src="assets/add.png" alt="add-task">
           </button>
         </div>
         <hr>
         <div class="container-description-date-time-todo">
           <div class="description">
-            <input class="description-input" type="text" [(ngModel)]="newTask.description"
+            <input (click)="select = true" class="description-input" type="text" [(ngModel)]="newTask.description"
               placeholder="Insira a descrição da tarefa">
             <img src="assets\repeat.png" alt="" (click)="repeatToggle()">
 
@@ -50,26 +54,25 @@
             <div>
               <span>Repetir: </span>
             </div>
-            <button (click)="newTask.repeat = ('diariamente'); toggleMenuRepeat(); repitition === newTask.repeat">
+            <button (click)="toggleMenuRepeat(1)">
               <img src="assets\repeat-calendar.png" alt="">Diariamente
             </button>
-            <button (click)="newTask.repeat =  ('semanalmente'); toggleMenuRepeat(); repitition === newTask.repeat">
+            <button (click)=" toggleMenuRepeat(2)">
               <img src="assets\repeat-calendar.png" alt="">Semanalmente
             </button>
-            <button (click)="newTask.repeat = ('mensalmente'); toggleMenuRepeat(); repitition === newTask.repeat ">
+            <button (click)=" toggleMenuRepeat(3)">
               <img src="assets\repeat-calendar.png" alt="">Mensalmente
             </button>
-            <button (click)="newTask.repeat = ('anualmente'); toggleMenuRepeat(); repitition === newTask.repeat">
+            <button (click)="toggleMenuRepeat(4)">
               <img src="assets\repeat-calendar.png" alt="">Anualmente
             </button>
-            <button (click)="newTask.repeat = (''); toggleMenuRepeat(); repitition === newTask.repeat ">
+            <button (click)="toggleMenuRepeat(5)">
               <img src="assets\no-repeat.png" alt="">Sem repetição
             </button>
           </div>
         </div>
       </div>
-      <div class="remove"
-        *ngIf="(this.taskSelected === true && (newTask.date || newTask.time) !== null) || ((newTask.date || newTask.time) !== null)">
+      <div class="remove" *ngIf="shouldShowRemoveButton()">
         <button (click)="clearTime()">{{remove}}</button>
       </div>
 
@@ -149,7 +152,7 @@
       <div class="tasks-container">
         <div class="tasks">
           <div>
-            <h4 (click)="hidetask()">> Concluídas ({{completedTasks.length}})</h4>
+            <h4 class="completed" (click)="hidetask()"> <img src="assets\seta-direita.png" alt="" id="hidetask"> Concluídas ({{completedTasks.length}})</h4>
           </div>
           <table>
 

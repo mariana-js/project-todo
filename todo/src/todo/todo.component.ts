@@ -3,7 +3,6 @@ import { HttpClientModule } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Task, TodoService } from '../service/todo.service';
-
 @Component({
   selector: 'app-todo',
   standalone: true,
@@ -33,8 +32,6 @@ export class TodoComponent {
   r: boolean = false;
   repitition: string = '';
   select: boolean = false;
-  // selectClearTime: boolean = false;
-
   newTask: Task = {
     id: '',
     title: '',
@@ -45,16 +42,17 @@ export class TodoComponent {
     repeat: ''
   }
 
-  
   constructor(private todoService: TodoService) { }
 
   ngOnInit() {
     this.nowdate = new Date();
     this.loadTasks();
+
   }
-
-
-
+  shouldShowRemoveButton(): boolean {
+     this.remove = "Remover data de conclusão";
+    return !!(this.newTask.date || this.newTask.time);
+  }
   order(lista: Task[], criterio: 'title' | 'date'): void {
     lista.sort((a, b) => {
       let valorA: string | number = 0;
@@ -107,6 +105,11 @@ export class TodoComponent {
   hidetask() {
     this.hide = !this.hide;
     this.loadTasks();
+
+    const hidetask = document.getElementById('hidetask') as HTMLImageElement;
+    hidetask.src = this.hide ? "assets/seta-direita.png" : "assets/seta-para-baixo.png";
+
+
   }
 
   loadTasks() {
@@ -124,8 +127,20 @@ export class TodoComponent {
       this.atributeOrderTasks(this.criterio as 'title' | 'date')
     }
   }
-  toggleMenuRepeat() {
+  toggleMenuRepeat(classification: number) {
     this.r = !this.r;
+    if (classification === 1) {
+      this.newTask.repeat = 'diariamente';
+    } else if (classification === 2) {
+      this.newTask.repeat = 'semanalmente';
+    } else if (classification === 3) {
+      this.newTask.repeat = 'mensalmente';
+    } else if (classification === 4) {
+      this.newTask.repeat = 'anualmente';
+    } else if (classification === 5) {
+      this.newTask.repeat = '';
+    }
+    this.repitition === this.newTask.repeat;
   }
   modetoggle() {
     this.darkmode = !this.darkmode;
@@ -201,13 +216,10 @@ export class TodoComponent {
     this.loadTasks();
     this.clear();
   }
-
-
   editTask(task: Task) {
     this.editedTask = { ...task };
     this.newTask = { ...task };
   }
-
   save() {
     if (this.newTask.date === null || (this.newTask.date === null && this.newTask.time)) {
       this.newTask.repeat = '';
