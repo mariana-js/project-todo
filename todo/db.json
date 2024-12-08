@@ -2,7 +2,7 @@
   "taks": [
     {
       "id": "0660b912-5dd6-4092-bf6e-4153ab31b490",
-      "title": "Adicionar memoria",
+      "title": "Adicionar memória ",
       "description": "",
       "date": null,
       "time": null,
@@ -13,10 +13,10 @@
       "id": "31128f4d-b1e3-4188-a11d-d356576ad490",
       "title": "Projeto A",
       "description": "",
-      "date": null,
+      "date": "2024-12-11",
       "time": null,
-      "status": false,
-      "repeat": ""
+      "status": true,
+      "repeat": "diariamente"
     },
     {
       "id": "7911ffde-5d3d-411a-9be6-45462526db4c",
@@ -24,8 +24,8 @@
       "description": "Descrever sistemas detalhadamente em grande escala de organização",
       "date": "2024-12-03",
       "time": "12:42",
-      "status": true,
-      "repeat": "mensalmente"
+      "status": false,
+      "repeat": "diariamente"
     },
     {
       "id": "669accd1-5577-4c95-ac4f-8f389142247d",
@@ -42,7 +42,7 @@
       "description": "",
       "date": "2024-12-13",
       "time": null,
-      "status": true,
+      "status": false,
       "repeat": "semanalmente"
     },
     {
@@ -67,6 +67,15 @@
       "id": "20be7a65-1f5c-4a99-bac6-7091d4d03759",
       "title": "Projeto B",
       "description": "Descrever sistemas detalhadamente em grande escala de organização",
+      "date": null,
+      "time": null,
+      "status": true,
+      "repeat": ""
+    },
+    {
+      "id": "312fd28a-06a2-457a-8ebf-fe3a6dbfab2e",
+      "title": "Projeto A",
+      "description": "",
       "date": null,
       "time": null,
       "status": true,

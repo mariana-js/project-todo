@@ -18,20 +18,23 @@ import { Task, TodoService } from '../service/todo.service';
 
 export class TodoComponent {
   tasks: Task[] = [];
+  completed: Task[] = [];
   nowdate: Date | undefined;
-  editedTask: Task | null = null;
   filteredTasks: Task[] = [];
   completedTasks: Task[] = [];
-  completed: Task[] = [];
-  taskSelected: boolean = false;
-  darkmode = false;
-  hide = true;
-  remove = "";
-  openOrder = false;
-  criterio: string = 'semordem';
+  editedTask: Task | null = null;
+
   r: boolean = false;
-  repitition: string = '';
+  hide: boolean = true;
   select: boolean = false;
+  darkmode: boolean = false;
+  openOrder: boolean = false;
+  taskSelected: boolean = false;
+
+  remove = "";
+  repitition: string = '';
+  criterio: string = 'semordem';
+
   newTask: Task = {
     id: '',
     title: '',
@@ -47,10 +50,11 @@ export class TodoComponent {
   ngOnInit() {
     this.nowdate = new Date();
     this.loadTasks();
+    document.documentElement.setAttribute('data-theme', 'light');
 
   }
   shouldShowRemoveButton(): boolean {
-     this.remove = "Remover data de conclusão";
+    this.remove = "Remover data de conclusão";
     return !!(this.newTask.date || this.newTask.time);
   }
   order(lista: Task[], criterio: 'title' | 'date'): void {
@@ -79,18 +83,28 @@ export class TodoComponent {
       return 0;
     });
   }
+  clearFields() {
+    const clearfields = document.getElementById('id-clear-fields') as HTMLImageElement;
+    if (clearfields) {
+      clearfields.src = this.darkmode ? "assets/x-dark.png" : "assets/x.png";
+    }
+    return (this.taskSelected === true || this.select === true) && (this.newTask.title || this.newTask.description || this.newTask.date || this.newTask.time)
+  }
+  atributeOrderTasks(criterion: 'title' | 'date') {
+    this.criterio = criterion;
 
-  atributeOrderTasks(criterio: 'title' | 'date') {
-    this.criterio = criterio;
-    if (criterio === 'title') {
+    // Salva o critério no Service
+    this.todoService.setOrderCriterion(criterion);
+
+    if (criterion === 'title') {
       this.order(this.filteredTasks, 'title');
       this.order(this.completed, 'title');
-
-    } else if (criterio === 'date') {
+    } else if (criterion === 'date') {
       this.order(this.filteredTasks, 'date');
       this.order(this.completed, 'date');
     }
   }
+
 
   clearTime() {
     this.newTask.date = null;
@@ -107,8 +121,12 @@ export class TodoComponent {
     this.loadTasks();
 
     const hidetask = document.getElementById('hidetask') as HTMLImageElement;
-    hidetask.src = this.hide ? "assets/seta-direita.png" : "assets/seta-para-baixo.png";
+    if (this.darkmode) {
+      hidetask.src = this.hide ? "assets/seta-direita-dark.png" : "assets/seta-para-baixo-dark.png";
 
+    } else if (!this.darkmode) {
+      hidetask.src = this.hide ? "assets/seta-direita.png" : "assets/seta-para-baixo.png";
+    }
 
   }
 
@@ -117,18 +135,23 @@ export class TodoComponent {
       this.tasks = task;
       this.filteredTasks = this.tasks.filter(task => !task.status);
       this.completedTasks = this.tasks.filter(task => task.status);
+
       if (this.hide === false) {
         this.completed = this.completedTasks;
       } else {
         this.completed = [];
       }
     });
-    if (this.criterio !== 'semordem') {
-      this.atributeOrderTasks(this.criterio as 'title' | 'date')
+
+
+    // Sempre reaplica o critério armazenado
+    const savedCriterion = this.todoService.getOrderCriterion();
+    if (savedCriterion !== 'semordem') {
+      this.atributeOrderTasks(savedCriterion as 'title' | 'date');
     }
+
   }
   toggleMenuRepeat(classification: number) {
-    this.r = !this.r;
     if (classification === 1) {
       this.newTask.repeat = 'diariamente';
     } else if (classification === 2) {
@@ -141,30 +164,44 @@ export class TodoComponent {
       this.newTask.repeat = '';
     }
     this.repitition === this.newTask.repeat;
+
+    console.log('toggleMenuRepeat', this.r)
+    this.modeRepeatToggle();
+
+    console.log('toggleMenuRepeat',this.r)
+
   }
   modetoggle() {
     this.darkmode = !this.darkmode;
 
     document.documentElement.setAttribute('data-theme', this.darkmode ? "dark" : "light");
-
     const modeIcon = document.getElementById('mode-icon') as HTMLImageElement;
-    // const modeDelete = document.getElementById('delete') as HTMLImageElement;
-    // const modeUp = document.getElementById('update') as HTMLImageElement;
     if (modeIcon) {
       modeIcon.src = this.darkmode ? "assets/mode-light.png" : "assets/mode-dark.png";
-
-      const updateIcons = document.querySelectorAll('id-update') as NodeListOf<HTMLImageElement>;
-      updateIcons.forEach(icon => {
-        icon.src = this.darkmode ? "assets/update.png" : "assets/update-dark.png";
-      });
-
-      const deleteIcons = document.querySelectorAll('id-delete') as NodeListOf<HTMLImageElement>;
-      deleteIcons.forEach(icon => {
-        icon.src = this.darkmode ? "assets/delete-dark.png" : "assets/delete.png";
-      });
     }
+
+    const uppage = document.getElementById('id-up-page') as HTMLImageElement;
+    if (uppage) {
+      uppage.src = this.darkmode ? "assets/atualizar-dark.png" : "assets/atualizar.png";
+    }
+
+    const repitition = document.getElementById('id-repeat') as HTMLImageElement;
+    if (repitition) {
+      repitition.src = this.darkmode ? "assets/repeat-dark.png" : "assets/repeat.png";
+    }
+
+    const classifications = document.getElementById('id-classifications') as HTMLImageElement;
+    if (classifications) {
+      classifications.src = this.darkmode ? "assets/ordenar-dark.png" : "assets/ordenar.png";
+    }
+    const completedTask = document.getElementById('hidetask') as HTMLImageElement;
+    if (completedTask) {
+      completedTask.src = this.darkmode ? "assets/seta-direita-dark.png" : "assets/seta-direita.png";
+    }
+
   }
-  repeatToggle() {
+
+  modeRepeatToggle() {
     this.r = !this.r;
   }
 
@@ -175,7 +212,6 @@ export class TodoComponent {
       this.repeatTask();
       this.newTask.id = '';
       this.addTask();
-    } else {
     }
   }
 

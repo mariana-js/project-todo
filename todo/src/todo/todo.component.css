@@ -49,9 +49,9 @@
   justify-content: flex-end;
 }
 .remove button {
-  color: #bd0303;
+  /* color: #bd0303; */
   font-size: 13px;
-  background: #caddff;
+  /* background: #caddff; */
   display: grid;
   justify-items: center;
   border-radius: 14px;
@@ -69,7 +69,7 @@
   font-family: 'Roboto';
   font-style: normal;
   margin-left: 1rem;
-  color: #4D4B4B;
+  /* color: #4D4B4B; */
 }
 
 h1,
@@ -98,7 +98,6 @@ h3 {
   width: 100%;
   height: 3rem;
   padding: 0.3rem 0.1rem 0.8rem 0.1rem;
-  background: #FFFFFF;
   border-radius: 10px;
 }
 
@@ -117,7 +116,6 @@ h3 {
   height: 30px;
   cursor: pointer;
   border: none;
-  background-color: white;
 }
 
 .title-task-first-line input,
@@ -133,13 +131,9 @@ h3 {
   font-family: 'Inria Serif';
   font-style: normal;
   font-size: 16px;
-  color: #353535;
 }
 
-.title-task-first-line input:hover,
-.description .description-input:hover {
-  color: #000000;
-}
+
 
 .description {
   width: 100%;
@@ -148,7 +142,6 @@ h3 {
 }
 
 .description img{
-
   padding-right: 3px;
 }
 
@@ -156,7 +149,7 @@ h3 {
   border: none;
   outline: none;
   background-color: transparent;
-  color: #222222;
+  /* color: #222222; */
 }
 
 .date {
@@ -210,7 +203,6 @@ h4 {
   font-family: "Inria Serif";
   font-style: normal;
   font-size: 14px;
-  color: #4E4E4E;
 }
 
 h4 {
@@ -221,10 +213,10 @@ h4 {
   position: absolute;
   top: 150px;
   left: 0;
-  background-color: #ffffff;
-  border: 1px solid #ccc;
+  /* background-color: #ffffff; */
+  /* border: 1px solid #ccc; */
   border-radius: 8px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  /* box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); */
   padding: 4px;
   z-index: 1000;
   min-width: 150px;
@@ -241,7 +233,7 @@ h4 {
   font-weight: bold;
   display: block;
   margin: 7px 9px;
-  color: #333;
+  /* color: #333; */
   font-size: 13px;
 }
 
@@ -253,7 +245,7 @@ h4 {
   padding: 6px;
   border: none;
   background-color: transparent;
-  color: #113c6a;
+  /* color: #113c6a; */
   font-size: 13px;
   cursor: pointer;
   transition: background-color 0.2s ease;
@@ -278,37 +270,9 @@ h4 {
   padding-right: 0.7rem;
 }
 
-/* Efeito ao passar o mouse sobre os botões */
-.menu-dropdown button:hover, .repeat button:hover {
-  background-color: #f0f0f0;
-  /* Fundo cinza claro */
-  color: #0056b3;
-  /* Azul mais escuro */
-}
-
-/* Ajustes para dispositivos móveis (opcional) */
-@media (max-width: 600px) {
-  .menu-dropdown {
-    left: 10px;
-    right: 10px;
-    min-width: auto;
-  }
-
-  .repeat {
-    left: 10px;
-    /* Alinhar mais ao centro */
-    right: 10px;
-    /* Alinhar mais ao centro */
-    min-width: auto;
-    /* Largura ajustável */
-  }
-}
-
 /* Estilo das linhas */
 .task {
-  background-color: #ffffff;
   border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   padding: 10px 3px;
   margin: 0.4rem 0;
   width: 100%;
@@ -316,6 +280,7 @@ h4 {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
+  transition: background-color 0.2s ease;
 }
 
 .task-options-title-check {
@@ -329,7 +294,7 @@ h4 {
   font-weight: 500;
   font-family: 'Inter';
   font-size: 14px;
-  color: #141414;
+  /* color: #141414; */
   text-align: left;
   padding-left: 0.5rem;
   white-space: nowrap;
@@ -340,7 +305,7 @@ h4 {
 
 .task-description {
   flex: 1 0 100%;
-  color: #6c757d;
+  /* color: #6c757d; */
   font-size: 14px;
   flex-basis: 100%;
   text-align: left;
@@ -350,7 +315,7 @@ h4 {
 
 .task-options-describe {
   width: 30%;
-  color: #6c757d;
+  /* color: #6c757d; */
   font-size: 14px;
   display: inline-flex;
   justify-content: flex-end;
@@ -373,6 +338,24 @@ h4 {
 
 
 /* RESPONSIVIDADE */
+
+/* Ajustes para dispositivos móveis (opcional) */
+@media (max-width: 600px) {
+  .menu-dropdown {
+    left: 10px;
+    right: 10px;
+    min-width: auto;
+  }
+
+  .repeat {
+    left: 10px;
+    /* Alinhar mais ao centro */
+    right: 10px;
+    /* Alinhar mais ao centro */
+    min-width: auto;
+    /* Largura ajustável */
+  }
+}
 @media screen and (max-width: 400px) {
   .task-title {
     width: 12em;

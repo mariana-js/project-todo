@@ -19,9 +19,20 @@ export interface Task {
 export class TodoService {
   private api = 'http://localhost:3000/taks';
   private tasks: Task[] = [];
+  private orderCriterion: string = 'semordem';
 
   constructor(private http: HttpClient) {}
 
+
+ 
+  setOrderCriterion(criterion: string) {
+    this.orderCriterion = criterion;
+    localStorage.setItem('orderCriterion', criterion);
+  }
+
+  getOrderCriterion(): string {
+    return localStorage.getItem('orderCriterion') || this.orderCriterion;
+  }
   getTaskCount(): Observable<number> {
     return this.http.get<any[]>(this.api).pipe(
       map((tasks => tasks.length) // Retorna a quantidade de tarefas
