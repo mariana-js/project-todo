@@ -160,7 +160,11 @@
                   <img *ngIf="task.id" [src]="darkmode ? 'assets/delete-dark.png' : 'assets/delete.png'" id="id-delete"
                     alt="delete-task" (click)="deleteTask(task.id)" /></span>
               </td>
-              <td class="task-description">{{task.description}}</td>
+              <td class="task-description">
+               <span>
+                {{task.description}}
+               </span>
+              </td>
             </tr>
 
           </tbody>

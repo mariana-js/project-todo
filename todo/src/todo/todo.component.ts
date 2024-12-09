@@ -103,6 +103,7 @@ export class TodoComponent {
       this.loadTasks();
     }
   }
+
   clearTime() {
     this.newTask.date = null;
     this.newTask.time = null;
@@ -160,11 +161,7 @@ export class TodoComponent {
       this.newTask.repeat = '';
     }
     this.repitition === this.newTask.repeat;
-
-    console.log('toggleMenuRepeat', this.r)
     this.modeRepeatToggle();
-
-    console.log('toggleMenuRepeat',this.r)
 
   }
   modetoggle() {
