@@ -23,8 +23,6 @@ export class TodoService {
 
   constructor(private http: HttpClient) {}
 
-
- 
   setOrderCriterion(criterion: string) {
     this.orderCriterion = criterion;
     localStorage.setItem('orderCriterion', criterion);

@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
-import { Component } from '@angular/core';
+import { ChangeDetectorRef, Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Task, TodoService } from '../service/todo.service';
 @Component({
@@ -45,7 +45,7 @@ export class TodoComponent {
     repeat: ''
   }
 
-  constructor(private todoService: TodoService) { }
+  constructor(private readonly todoService: TodoService, private readonly cdr: ChangeDetectorRef) { }
 
   ngOnInit() {
     this.nowdate = new Date();
@@ -90,22 +90,19 @@ export class TodoComponent {
     }
     return (this.taskSelected === true || this.select === true) && (this.newTask.title || this.newTask.description || this.newTask.date || this.newTask.time)
   }
-  atributeOrderTasks(criterion: 'title' | 'date') {
+  atributeOrderTasks(criterion: 'title' | 'date' | 'semordem') {
     this.criterio = criterion;
-
-    // Salva o critério no Service
     this.todoService.setOrderCriterion(criterion);
-
     if (criterion === 'title') {
       this.order(this.filteredTasks, 'title');
       this.order(this.completed, 'title');
     } else if (criterion === 'date') {
       this.order(this.filteredTasks, 'date');
       this.order(this.completed, 'date');
+    } else if (criterion === 'semordem') {
+      this.loadTasks();
     }
   }
-
-
   clearTime() {
     this.newTask.date = null;
     this.newTask.time = null;
@@ -141,14 +138,13 @@ export class TodoComponent {
       } else {
         this.completed = [];
       }
+
+      const savedCriterion = this.todoService.getOrderCriterion();
+      if (savedCriterion !== 'semordem') {
+        this.atributeOrderTasks(savedCriterion as 'title' | 'date');
+      }
     });
 
-
-    // Sempre reaplica o critério armazenado
-    const savedCriterion = this.todoService.getOrderCriterion();
-    if (savedCriterion !== 'semordem') {
-      this.atributeOrderTasks(savedCriterion as 'title' | 'date');
-    }
 
   }
   toggleMenuRepeat(classification: number) {
@@ -198,11 +194,12 @@ export class TodoComponent {
     if (completedTask) {
       completedTask.src = this.darkmode ? "assets/seta-direita-dark.png" : "assets/seta-direita.png";
     }
-
+    this.cdr.detectChanges();
   }
 
   modeRepeatToggle() {
     this.r = !this.r;
+    this.cdr.detectChanges();
   }
 
   reT(task: Task) {
@@ -214,7 +211,6 @@ export class TodoComponent {
       this.addTask();
     }
   }
-
   repeatTask() {
     const dateTask = new Date(this.newTask.date + 'T00:00:00');
 
