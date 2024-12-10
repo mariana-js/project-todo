@@ -341,9 +341,8 @@ h4 {
   width: max-content;
 }
 
-/* RESPONSIVIDADE */
 
-/* Ajustes para dispositivos móveis (opcional) */
+/* RESPONSIVIDADE */
 
 @media screen and (max-width: 400px) {
   .task-title {
@@ -380,6 +379,7 @@ h4 {
     font-size: 12px;
   }
 
+
 }
 
 @media screen and (max-width: 530px) {
@@ -389,8 +389,8 @@ h4 {
   }
 
   .modo img {
-    width: 16px;
-    height: 16px;
+    width: 20px;
+    height: 20px;
   }
 
   .time {
@@ -401,6 +401,8 @@ h4 {
   .date {
     width: 1.1rem;
   }
+
+
 }
 
 @media (max-width: 600px) {
@@ -426,6 +428,22 @@ h4 {
     height: 3rem;
   }
 
+  body{
+    padding: -1rem;
+    margin: -1rem;
+  }
+
+  .container-global{
+    padding: -1rem;
+    margin: -1rem;
+    width: 95%;
+
+    height: 120%;
+  }
+  .container-todo{
+    padding: -2rem;
+  }
+
 }
 
 @media screen and (min-width: 401) and (max-width:500px) {
@@ -446,7 +464,6 @@ h4 {
 @media screen and (min-width: 501) and (max-width: 600px) {
   .task-title {
     width: 1rem;
-    /* display:contents; */
   }
 
   .container-global {
@@ -492,6 +509,7 @@ h4 {
   .repeat {
     width: 48%;
   }
+
 }
 
 @media screen and (min-width: 901px) {

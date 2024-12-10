@@ -17,7 +17,7 @@ export interface Task {
   providedIn: 'root'
 })
 export class TodoService {
-  private api = 'http://localhost:3000/taks';
+  private api = 'http://192.168.0.16:3000/taks';
   private tasks: Task[] = [];
   private orderCriterion: string = 'semordem';
 
