@@ -196,8 +196,7 @@
             </thead>
             <tbody>
               <tr *ngFor="let task of completed" class="task">
-
-                <td class="task-options-title-check">
+                <td class="task-options-title-check" >
                   <span (click)="toggleStatus(task)">
                     <input type="checkbox" name="status" [checked]="task.status">
                   </span>
