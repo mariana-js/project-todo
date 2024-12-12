@@ -23,7 +23,8 @@ O objetivo principal deste projeto é facilitar e agilizar a vida das pessoas co
 	
 ### Diagrama de Classes
 
-![](https://github.com/mariana-js/project-todo/blob/main/TODO.png)
+![](https://github.com/mariana-js/project-todo/blob/main/Arquivos/TODO.png)
+![](https://github.com/mariana-js/project-todo/blob/main/Arquivos/telas.pdf)
 
 ### Simulação da Tela Figma
 
